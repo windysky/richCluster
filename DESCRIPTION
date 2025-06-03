@@ -1,0 +1,33 @@
+Package: RichCluster
+Type: Package
+Title: Concise Summary of What the Package
+     Does
+Version: 1.0
+Date: 2025-06-02
+Authors@R: person("Your", "Name", role =
+     c("aut", "cre"), email =
+     "your@email.com")
+Description: More about what it does (maybe
+     more than one line).
+License: GPL (>= 2)
+Imports: Rcpp (>= 1.0.14)
+Suggests:
+    devtools,
+    roxygen2,
+    testthat
+LinkingTo: Rcpp
+RoxygenNote: 7.3.2
+Collate: 
+    'RcppExports.R'
+    'bars.R'
+    'cluster.R'
+    'cluster_correlation.R'
+    'dots.R'
+    'export_df.R'
+    'full_network.R'
+    'hmaps.R'
+    'load_all.R'
+    'merge_enrichment_results.R'
+    'package.R'
+    'run_shiny_app.R'
+    'zzz.R'
