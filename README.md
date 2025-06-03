@@ -22,7 +22,7 @@ install_github("hyuncat/RichCluster")
 ```
 
 ## Usage
-The basic flow is as follows. A demo can be followed along through the attached vignettes.
+The basic flow is as follows. A demo can be followed along in the `tests.R` script in the `/scripts` subfolder. All demo data can be found in `/inst/extdata`.
 
 <img src="https://github.com/user-attachments/assets/f5c857bc-8547-445f-be15-b9a1102f76f4" width="500" height="auto">
 
