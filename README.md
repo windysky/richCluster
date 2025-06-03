@@ -6,11 +6,11 @@ Terms are clustered together based on how many genes are shared between them. We
 - Jaccard index
 
 As well as different linkage criteria for iteratively merging clusters together.
-- Multiple linkage (from DAVID implementation)
+- ~~Multiple linkage (from DAVID implementation)~~ (not yet implemented)
 - Single
 - Complete
 - Average
-- Ward
+- ~~Ward~~ (not yet implemented)
 
 ## Installation
 The package is currently under review in submission to CRAN, but for now users can install the package and try out the clustering and visualization features by installing through GitHub.
@@ -53,23 +53,22 @@ We also allow user to specify which distance metric / cutoff score they want to 
 
 Note that we technically are using a 'similarity' metric, so the cutoff is the *minimum* kappa score (for instance) that two terms must share in order to be clustered together. Hence a higher cutoff would lead to stricter clustering / smaller clusters.
 
-### Merge strategy
-After an initial grouping of terms based on having a distance score above a certain cutoff, we merge our initial "seed groups" (pre-clusters) together based on the provided merge strategy.
+### Linkage method
+After an initial grouping of terms based on having a distance score above a certain cutoff, we merge our initial "seed groups" (pre-clusters) together based on the provided linkage method.
 
-- `merge_strategy` - A string specifying the merge strategy to use (e.g., "DAVID").
-- `membership_cutoff` - A numeric value between 0 and 1 for the membership cutoff
+- `linkage_method` - A string specifying the linkage method to use (e.g., "average").
+- `linkage_cutoff` - A numeric value between 0 and 1 for the minimum linkage cutoff needed to merge two groups together.
 
-The default uses DAVID's strategy of multiple linkage, which takes a certain membership_cutoff and merges seeds together if their combined 'membership' score is above the threshold.
-Where membership is defined as that percentage of term pairs in the seed group which have a distance score above the distance_cutoff.
+The default recommended should be `average`, which takes the average distance between all terms in the two clusters and uses that as the metric to merge.
 
 The total list of supported metrics includes: 
-- `"david"` - DAVID multiple linkage membership
+- ~~`"david"` - DAVID multiple linkage membership~~ (not yet implemented)
 - `"single"`
 - `"complete"`
 - `"average"`
-- `"ward"` (recommended)
+- ~~`"ward"` (recommended)~~ (not yet implemented)
 
-Again, a higher membership_cutoff leads to stricter (smaller) clusters.
+Again, a higher linkage_cutoff leads to stricter (smaller) clusters.
 
 ### Output
 The output of the `cluster()` function is a `ClusterResult` which can be directly inputted into the visualizations or exported as a csv file with some additional options.
