@@ -1,3 +1,5 @@
+library(dplyr)
+library(tidyr)
 
 load_cluster_data <- function(from_scratch=FALSE)
 {
