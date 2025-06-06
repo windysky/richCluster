@@ -55,7 +55,7 @@
     },
     {
         "file": "/Users/sarah/Desktop/RichCluster/src/ClusterList.cpp",
-        "file_last_write": 1748960158.0,
+        "file_last_write": 1748964526.0,
         "definitions": [
             {
                 "usr": "c:@S@ClusterList@F@export_r#1",
@@ -66,13 +66,23 @@
                 "line": 15,
                 "column": 30,
                 "hidden": false
+            },
+            {
+                "usr": "c:@S@ClusterList@F@deduplicate#",
+                "kind": 7,
+                "parent_name": "ClusterList",
+                "name": "deduplicate",
+                "file": "/Users/sarah/Desktop/RichCluster/src/ClusterList.cpp",
+                "line": 47,
+                "column": 19,
+                "hidden": false
             }
         ],
         "hidden": false
     },
     {
         "file": "/Users/sarah/Desktop/RichCluster/src/ClusterList.h",
-        "file_last_write": 1748960151.0,
+        "file_last_write": 1748964514.0,
         "definitions": [
             {
                 "usr": "c:@S@ClusterList",
@@ -314,7 +324,7 @@
     },
     {
         "file": "/Users/sarah/Desktop/RichCluster/src/LinkageMethod.h",
-        "file_last_write": 1748957322.0,
+        "file_last_write": 1748963711.0,
         "definitions": [
             {
                 "usr": "c:@S@LinkageMethod",
@@ -341,7 +351,7 @@
     },
     {
         "file": "/Users/sarah/Desktop/RichCluster/src/RichCluster.cpp",
-        "file_last_write": 1748960712.0,
+        "file_last_write": 1748964546.0,
         "definitions": [
             {
                 "usr": "c:@S@RichCluster@F@computeDistances#",
@@ -359,7 +369,7 @@
                 "parent_name": "RichCluster",
                 "name": "filterSeeds",
                 "file": "/Users/sarah/Desktop/RichCluster/src/RichCluster.cpp",
-                "line": 42,
+                "line": 44,
                 "column": 19,
                 "hidden": false
             },
@@ -369,7 +379,7 @@
                 "parent_name": "RichCluster",
                 "name": "filterSeed(int, std::unordered_set<int>)",
                 "file": "/Users/sarah/Desktop/RichCluster/src/RichCluster.cpp",
-                "line": 49,
+                "line": 56,
                 "column": 38,
                 "hidden": false
             },
@@ -379,7 +389,7 @@
                 "parent_name": "RichCluster",
                 "name": "mergeClusters",
                 "file": "/Users/sarah/Desktop/RichCluster/src/RichCluster.cpp",
-                "line": 74,
+                "line": 87,
                 "column": 19,
                 "hidden": false
             },
@@ -389,7 +399,7 @@
                 "parent_name": "RichCluster",
                 "name": "findBestMergePartner(ClusterList::ClusterIt, std::list<std::unordered_set<int>> &)",
                 "file": "/Users/sarah/Desktop/RichCluster/src/RichCluster.cpp",
-                "line": 100,
+                "line": 118,
                 "column": 37,
                 "hidden": false
             },
@@ -399,7 +409,7 @@
                 "parent_name": "",
                 "name": "runRichCluster(Rcpp::CharacterVector, Rcpp::CharacterVector, std::string, double, std::string, double)",
                 "file": "/Users/sarah/Desktop/RichCluster/src/RichCluster.cpp",
-                "line": 123,
+                "line": 141,
                 "column": 12,
                 "hidden": false
             }
@@ -408,7 +418,7 @@
     },
     {
         "file": "/Users/sarah/Desktop/RichCluster/src/RichCluster.h",
-        "file_last_write": 1748960523.0,
+        "file_last_write": 1748963746.0,
         "definitions": [
             {
                 "usr": "c:@S@RichCluster",
