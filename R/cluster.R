@@ -154,3 +154,18 @@ make_full_clusterdf <- function(final_clusters, merged_df) {
   return(full_clusterdf)
 }
 
+
+
+#' Run clustering in C++ backend
+#'
+#' @param terms Character vector of term names
+#' @param geneIDs Character vector of geneIDs
+#' @param distanceMetric e.g. "kappa"
+#' @param distanceCutoff numeric between 0 and 1
+#' @param linkageMethod e.g. "average"
+#' @param linkageCutoff numeric between 0 and 1
+#'
+#' @export
+runRichCluster <- function(terms, geneIDs, distanceMetric, distanceCutoff, linkageMethod, linkageCutoff) {
+  .Call(`_RichCluster_runRichCluster`, terms, geneIDs, distanceMetric, distanceCutoff, linkageMethod, linkageCutoff)
+}
