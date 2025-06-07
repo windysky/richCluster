@@ -3,6 +3,23 @@
 #' @import tidyr
 NULL
 
+#' Cluster-level Dot Plot of Enrichment Significance
+#'
+#' Creates a dot plot summarizing cluster-level enrichment across datasets.
+#' Each point represents a cluster, with its size proportional to the number
+#' of terms and its x-position reflecting average significance (e.g., Padj or Pvalue).
+#'
+#' @param cluster_result A result list returned from \code{\link{cluster}}.
+#' @param clusters Optional numeric vector of cluster IDs to include. Defaults to all clusters.
+#' @param value_type The name of the value column to visualize (e.g., "Padj" or "Pvalue").
+#' @param title Optional title for the plot. If NULL, a default title is generated.
+#'
+#' @return A \code{plotly} object representing the dot plot.
+#' @examples
+#' \dontrun{
+#' cdot <- cluster_dot(cluster_result)
+#' cdot
+#' }
 #' @export
 cluster_dot <- function(cluster_result, clusters=NULL, value_type="Padj", title=NULL) {
   cluster_df <- cluster_result$cluster_df
@@ -89,6 +106,22 @@ cluster_dot <- function(cluster_result, clusters=NULL, value_type="Padj", title=
 # cdot <- cluster_dot(cluster_result)
 # cdot
 
+#' Term-level Dot Plot for a Specific Cluster
+#'
+#' Creates a dot plot of individual terms within a specified cluster, showing
+#' their significance and number of genes.
+#'
+#' @param cluster_result A result list returned from \code{\link{cluster}}.
+#' @param cluster Cluster ID (numeric) or term name (character) to plot.
+#' @param value_type The name of the value column to visualize (e.g., "Padj" or "Pvalue").
+#' @param title Optional title for the plot. If NULL, a default title is generated using the representative term.
+#'
+#' @return A \code{plotly} object representing the dot plot of terms.
+#' @examples
+#' \dontrun{
+#' tdot <- term_dot(cluster_result, cluster = 1)
+#' tdot
+#' }
 #' @export
 term_dot <- function(cluster_result, cluster=1, value_type="Padj", title=NULL) {
 

@@ -64,7 +64,8 @@ cluster_correlation_hmap <- function(final_clusters, distance_matrix, cluster_nu
 #' Create a Network Graph for a Specific Cluster
 #'
 #' This function generates a network graph for a specific cluster based on the provided distance matrix.
-#' The opacity and length of the edges correspond to the kappa score.
+#' The opacity and length of the edges correspond to the given distance_metric (eg, kappa) score similarity 
+#' between terms, which is based on shared gene content.
 #'
 #' @param final_clusters A dataframe containing the final cluster data.
 #' @param distance_matrix A matrix representing the distances between terms.

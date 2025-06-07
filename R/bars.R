@@ -3,6 +3,23 @@
 #' @import tidyr
 NULL
 
+#' Cluster-level Bar Plot of Enrichment Significance
+#'
+#' Generates a horizontal bar plot showing average enrichment significance
+#' for each cluster, across one or more enrichment datasets.
+#'
+#' @param cluster_result A result list returned by \code{\link{cluster}}.
+#' @param clusters Optional numeric vector of cluster IDs to include. Defaults to all clusters.
+#' @param value_type The column name to use for enrichment significance ("Padj" or "Pvalue").
+#' @param title Optional plot title. If NULL, a default will be generated.
+#'
+#' @return A \code{plotly} object representing the bar plot.
+#'
+#' @examples
+#' \dontrun{
+#' cbar <- cluster_bar(cluster_result)
+#' cbar
+#' }
 #' @export
 cluster_bar <- function(cluster_result, clusters=NULL, value_type="Padj", title=NULL) {
 
@@ -64,6 +81,23 @@ cluster_bar <- function(cluster_result, clusters=NULL, value_type="Padj", title=
 # cbar <- cluster_bar(cluster_result)
 # cbar
 
+#' Term-level Bar Plot for a Specific Cluster
+#'
+#' Creates a horizontal bar plot showing enrichment values for individual terms
+#' in a selected cluster.
+#'
+#' @param cluster_result A result list returned by \code{\link{cluster}}.
+#' @param cluster Cluster ID (numeric) or term name (character) to visualize.
+#' @param value_type The column name to use for enrichment significance ("Padj" or "Pvalue").
+#' @param title Optional plot title. If NULL, a default will be generated.
+#'
+#' @return A \code{plotly} object representing the bar plot.
+#'
+#' @examples
+#' \dontrun{
+#' tbar <- term_bar(cluster_result, cluster = 1)
+#' tbar
+#' }
 #' @export
 term_bar <- function(cluster_result, cluster=1, value_type="Padj", title=NULL) {
 

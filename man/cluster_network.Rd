@@ -18,5 +18,6 @@ An interactive networkD3 network graph.
 }
 \description{
 This function generates a network graph for a specific cluster based on the provided distance matrix.
-The opacity and length of the edges correspond to the kappa score.
+The opacity and length of the edges correspond to the given distance_metric (eg, kappa) score similarity 
+between terms, which is based on shared gene content.
 }
