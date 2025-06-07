@@ -1,5 +1,7 @@
-library(dplyr)
-library(tidyverse)
+#' @importFrom magrittr %>%
+#' @import dplyr
+#' @import tidyr
+NULL
 
 #' Merge List of Enrichment Results
 #'
@@ -53,12 +55,17 @@ merge_enrichment_results <- function(enrichment_results) {
   # Average the value columns across all enrichment_results
   # Avg Pvalue
   pvalue_cols <- paste("Pvalue", seq_along(enrichment_results), sep=SEP)
-  merged_gs$Pvalue <- rowMeans(merged_gs[, pvalue_cols], na.rm=TRUE)
-
+  available_pvalue_cols <- pvalue_cols[pvalue_cols %in% colnames(merged_gs)]
+  if (length(available_pvalue_cols) > 0) {
+    merged_gs$Pvalue <- rowMeans(merged_gs[, available_pvalue_cols], na.rm = TRUE)
+  }
+  
   # Avg Padj
   padj_cols <- paste("Padj", seq_along(enrichment_results), sep=SEP)
-  merged_gs$Padj <- rowMeans(merged_gs[, padj_cols], na.rm=TRUE)
-
+  available_padj_cols <- padj_cols[padj_cols %in% colnames(merged_gs)]
+  if (length(available_padj_cols) > 0) {
+    merged_gs$Padj <- rowMeans(merged_gs[, available_padj_cols], na.rm = TRUE)
+  }
   # Return the merged geneset df
   return(merged_gs)
 

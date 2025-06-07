@@ -1,5 +1,8 @@
 # heatmap creation
-library(dplyr)
+#' @importFrom magrittr %>%
+#' @import dplyr
+#' @import tidyr
+NULL
 
 # utils
 na_to_zero <- function(x) {

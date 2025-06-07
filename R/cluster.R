@@ -1,4 +1,7 @@
-
+#' @importFrom magrittr %>%
+#' @import dplyr
+#' @import tidyr
+NULL
 
 #' Cluster Terms from Enrichment Results
 #'
@@ -24,17 +27,10 @@
 #'         - `cluster_options`: A list of clustering parameters used in the analysis.
 #'         - `df_names` (optional): The names of the input dataframes if provided.
 #'
-#' @examples
-#' enrichment_results <- list(
-#'   df1 = data.frame(Term = c("A", "B"), GeneID = c("gene1", "gene2"), Padj = c(0.01, 0.02)),
-#'   df2 = data.frame(Term = c("A", "C"), GeneID = c("gene3", "gene4"), Padj = c(0.03, 0.04))
-#' )
-#' result <- cluster(enrichment_results, distance_metric = "kappa", distance_cutoff = 0.5)
-#' print(result$distance_matrix)
 #' @export
 cluster <- function(enrichment_results, df_names=NULL, min_terms=5, min_value=0.05,
                     distance_metric="kappa", distance_cutoff=0.5,
-                    linkage_method="DAVID", linkage_cutoff=0.5) {
+                    linkage_method="average", linkage_cutoff=0.5) {
 
   if (is.null(df_names) || length(enrichment_results) != length(df_names)) {
     df_names <- as.character(seq_along(enrichment_results))
@@ -52,7 +48,7 @@ cluster <- function(enrichment_results, df_names=NULL, min_terms=5, min_value=0.
   geneID_vec <- merged_df$GeneID
 
   merged_df <- merged_df %>%
-    filter(Pvalue < min_value) # as default, but user adjusts if they want
+    filter(Padj < min_value) # as default, but user adjusts if they want
 
   # throw error if cluster options are invalid
 

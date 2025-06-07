@@ -2,6 +2,7 @@ Package: RichCluster
 Type: Package
 Title: Fast, Robust Clustering Algorithms for Gene Enrichment Data
 Version: 1.0
+Encoding: UTF-8
 Date: 2025-06-02
 Authors@R: person("Sarah", "Hong", role =
      c("aut", "cre"), email =
@@ -10,7 +11,16 @@ Description: RichCluster is a fast C++ agglomerative hierarchical clustering alg
     into easily callable R functions, designed to help cluster biological 'terms' based on how similar 
     of genes are expressed in their activation.
 License: GPL (>= 2)
-Imports: Rcpp (>= 1.0.14)
+Imports: 
+    Rcpp (>= 1.0.14),
+    cpp11,
+    dplyr,
+    tidyr,
+    magrittr,
+    heatmaply,
+    iheatmapr,
+    igraph,
+    networkD3
 Suggests:
     devtools,
     roxygen2,

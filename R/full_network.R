@@ -1,3 +1,8 @@
+#' @importFrom magrittr %>%
+#' @import dplyr
+#' @import tidyr
+NULL
+
 #' Create a Network Graph for the Entire Distance Matrix
 #'
 #' This function generates a network graph for the entire distance matrix.

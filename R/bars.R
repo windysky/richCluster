@@ -1,3 +1,7 @@
+#' @importFrom magrittr %>%
+#' @import dplyr
+#' @import tidyr
+NULL
 
 #' @export
 cluster_bar <- function(cluster_result, clusters=NULL, value_type="Padj", title=NULL) {

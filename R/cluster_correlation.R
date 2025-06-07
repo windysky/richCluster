@@ -1,3 +1,8 @@
+#' @importFrom magrittr %>%
+#' @import dplyr
+#' @import tidyr
+NULL
+
 #' Create a Correlation Heatmap for a Specific Cluster
 #'
 #' This function generates a correlation heatmap for a specific cluster based on the provided distance matrix.

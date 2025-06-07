@@ -11,8 +11,8 @@ cluster(
   min_value = 0.05,
   distance_metric = "kappa",
   distance_cutoff = 0.5,
-  merge_strategy = "DAVID",
-  membership_cutoff = 0.5
+  linkage_method = "average",
+  linkage_cutoff = 0.5
 )
 }
 \arguments{
@@ -30,9 +30,9 @@ match the length of `enrichment_results`. Default is `NULL`.}
 
 \item{distance_cutoff}{A numeric value for the distance cutoff (0 < cutoff <= 1).}
 
-\item{merge_strategy}{A string specifying the merge strategy to use (e.g., "DAVID").}
+\item{linkage_method}{A string specifying the merge strategy to use (e.g., "DAVID").}
 
-\item{membership_cutoff}{A numeric value between 0 and 1 for the membership cutoff.}
+\item{linkage_cutoff}{A numeric value between 0 and 1 for the membership cutoff.}
 }
 \value{
 A named list containing:
@@ -46,12 +46,4 @@ A named list containing:
 \description{
 This function performs clustering on enrichment results by integrating
 gene similarity scores and various clustering strategies.
-}
-\examples{
-enrichment_results <- list(
-  df1 = data.frame(Term = c("A", "B"), GeneID = c("gene1", "gene2"), Padj = c(0.01, 0.02)),
-  df2 = data.frame(Term = c("A", "C"), GeneID = c("gene3", "gene4"), Padj = c(0.03, 0.04))
-)
-result <- cluster(enrichment_results, distance_metric = "kappa", distance_cutoff = 0.5)
-print(result$distance_matrix)
 }

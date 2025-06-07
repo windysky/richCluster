@@ -1,3 +1,7 @@
+#' @importFrom magrittr %>%
+#' @import dplyr
+#' @import tidyr
+NULL
 
 # functions to export the cluster_result as csv
 
