@@ -28,7 +28,7 @@ NULL
 #'         - `df_names` (optional): The names of the input dataframes if provided.
 #'
 #' @export
-cluster <- function(enrichment_results, df_names=NULL, min_terms=5, min_value=0.05,
+cluster <- function(enrichment_results, df_names=NULL, min_terms=5, min_value=0.1,
                     distance_metric="kappa", distance_cutoff=0.5,
                     linkage_method="average", linkage_cutoff=0.5) {
 
@@ -43,12 +43,11 @@ cluster <- function(enrichment_results, df_names=NULL, min_terms=5, min_value=0.
   # call merge_enrichment_results
   merged_df <- merge_enrichment_results(enrichment_results)
 
-  # call the cpp function
+  merged_df <- merged_df %>%
+    filter(Pvalue < min_value) # as default, but user adjusts if they want
+  
   term_vec <- merged_df$Term
   geneID_vec <- merged_df$GeneID
-
-  merged_df <- merged_df %>%
-    filter(Padj < min_value) # as default, but user adjusts if they want
 
   # throw error if cluster options are invalid
 
