@@ -1,0 +1,89 @@
+---
+title: "Workflow: RichCluster Example"
+author: "Sarah Hong"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Workflow: RichCluster Example}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+library(RichCluster)
+library(dplyr)
+library(tidyr)
+```
+
+## Load or Generate Clustering Data
+
+```{r load-cluster-data}
+load_cluster_data <- function(from_scratch=FALSE) {
+  if (!from_scratch) {
+    cluster_result <- readRDS(system.file("extdata", "cluster_result.rds", package = "RichCluster"))
+  } else {
+    rr1 <- read.delim(system.file("extdata", "go1.txt", package = "RichCluster"))
+    rr2 <- read.delim(system.file("extdata", "go2.txt", package = "RichCluster"))
+    
+    enrichment_results <- list(rr1, rr2)
+    rr_names <- c('7mo_DEG', '7mo_DMR')
+    
+    cluster_result <- RichCluster::cluster(
+      enrichment_results, df_names = rr_names, min_terms = 5,
+      distance_metric = "kappa", distance_cutoff = 0.5,
+      linkage_method = "average", linkage_cutoff = 0.5
+    )
+  }
+  return(cluster_result)
+}
+
+cluster_result <- load_cluster_data(from_scratch = FALSE)
+```
+
+## Cluster-Level Visualizations
+
+```{r cluster-hmap}
+c_hmap <- cluster_hmap(cluster_result)
+c_hmap
+```
+
+```{r cluster-bar}
+c_bar <- cluster_bar(cluster_result)
+c_bar
+```
+
+```{r cluster-dot}
+c_dot <- cluster_dot(cluster_result)
+c_dot
+```
+
+## Term-Level Visualizations
+
+```{r term-hmap}
+clusters <- c("mating plug formation", "regulation of protein refolding", "regulation of plasma cell differentiation")
+terms <- c("neuroblast proliferation", "regulation of tissue remodeling", "protein secretion")
+
+t_hmap <- term_hmap(cluster_result, clusters, terms, value_type = "Padj")
+t_hmap
+```
+
+```{r term-bar}
+t_bar <- term_bar(cluster_result, 48)
+t_bar
+```
+
+```{r term-dot}
+t_dot <- term_dot(cluster_result, 48)
+t_dot
+```
+
+## Export Results
+
+```{r export-cluster-df}
+cluster_df <- export_df(cluster_result)
+head(cluster_df)
+```

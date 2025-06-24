@@ -21,10 +21,13 @@ Imports:
     iheatmapr,
     igraph,
     networkD3
-Suggests:
+VignetteBuilder: knitr
+Suggests: 
     devtools,
     roxygen2,
-    testthat
+    testthat,
+    knitr,
+    rmarkdown
 LinkingTo: Rcpp
 RoxygenNote: 7.3.2
 Collate: 

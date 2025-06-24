@@ -44,7 +44,6 @@ void RichCluster::computeDistances() {
 void RichCluster::filterSeeds() {
   Rcpp::Rcout << "Filtering seeds..." << std::endl;
   
-  int seedCount = 0;
   for (const auto& [node, neighbors] : RichCluster::adjList.getAdjList()) {
     std::unordered_set<int> neighbors_set{neighbors};
     std::unordered_set<int> cluster = filterSeed(node, neighbors_set);

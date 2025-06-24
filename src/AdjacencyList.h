@@ -13,7 +13,7 @@
 
 class AdjacencyList {
 public:
-  AdjacencyList(int nterms) : n_terms(nterms){};
+  AdjacencyList(){};
   
   void addNeighbor(int node, int neighbor);
   bool hasNeighbor(int node, int neighbor);
@@ -25,7 +25,6 @@ public:
   
 private:
   std::unordered_map<int, std::unordered_set<int>> adjList;
-  int n_terms; // used to initialize size
 };
 
 #endif /* AdjacencyList_h */

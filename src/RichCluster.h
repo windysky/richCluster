@@ -36,7 +36,7 @@ public:
   
   // initialize data structures
   distMatrix(n_terms, terms),
-  adjList(n_terms),
+  adjList(),
   clusList(terms),
   
   // initialize metrics
