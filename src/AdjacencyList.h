@@ -1,6 +1,6 @@
 //
 //  AdjacencyList.h
-//  RichCluster
+//  richCluster
 //
 //  Created by Sarah on 6/2/25.
 //
@@ -13,7 +13,11 @@
 
 class AdjacencyList {
 public:
-  AdjacencyList(){};
+  AdjacencyList(int n_terms) {
+    for (int i=0; i<n_terms; ++i){
+      adjList[i] = std::unordered_set<int>();
+    }
+  }
   
   void addNeighbor(int node, int neighbor);
   bool hasNeighbor(int node, int neighbor);
@@ -21,6 +25,10 @@ public:
   // return reference to adjList (used to initialize ClusterList)
   const std::unordered_map<int, std::unordered_set<int>>& getAdjList() const {
     return adjList;
+  }
+  
+  size_t size() const {
+    return adjList.size();
   }
   
 private:

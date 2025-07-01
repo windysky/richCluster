@@ -9,14 +9,14 @@ load_cluster_data <- function(from_scratch=FALSE)
   }
   else {
     # read and manually cluster
-    rr1 <- read.delim(system.file("extdata", "go1.txt", package="RichCluster"))
-    rr2 <- read.delim(system.file("extdata", "go2.txt", package="RichCluster"))
+    rr1 <- read.delim(system.file("extdata", "HF36wk_vs_HF12wk.txt", package="richCluster"))
+    rr2 <- read.delim(system.file("extdata", "HF36wk_vs_WT12wk.txt", package="richCluster"))
     
     enrichment_results <- list(rr1, rr2)
-    rr_names <- c('7mo_DEG', '7mo_DMR')
+    rr_names <- c('hf36_vs_hf12', 'wt36_vs_wt12')
     
-    cluster_result <- RichCluster::cluster(
-      enrichment_results, df_names=rr_names, min_terms=5,
+    cluster_result <- richCluster::cluster(
+      enrichment_results, df_names=rr_names, min_terms=3, min_value=0.0001,
       distance_metric="kappa", distance_cutoff=0.5,
       linkage_method="average", linkage_cutoff=0.5
     )
@@ -25,42 +25,44 @@ load_cluster_data <- function(from_scratch=FALSE)
   return(cluster_result)
 }
 
-# example of what workflow using the functions looks like
-test_workflow <- function(cluster_result, min_terms=5) {
-  
-  # Testing: Choose one to comment out and test
-  # result <- RichCluster::all_clusters_hmap(full_clusterdf, "Padj")
-  # result <- RichCluster::cluster_correlation_hmap(final_clusters, distance_matrix, 3)
-  result <- RichCluster::cluster_network(final_clusters, distance_matrix, 1)
-  # result <- RichCluster::full_network(distance_matrix[1:30, 1:30])
-  return(result)
-  
-}
-
 cluster_result <- load_cluster_data(from_scratch=TRUE)
 
 # ALL VISUALIZATION TESTS
 # ---
-c_hmap <- RichCluster::cluster_hmap(cluster_result)
+c_hmap <- richCluster::cluster_hmap(cluster_result)
 c_hmap
 
 # clusters 4, 6, 8 + terms from clusters x,y,z
-clusters <- c("mating plug formation", "regulation of protein refolding", "regulation of plasma cell differentiation")
-terms <- c("neuroblast proliferation", "regulation of tissue remodeling", "protein secretion")
-t_hmap <- RichCluster::term_hmap(cluster_result, clusters, terms, value_type="Padj")
+clusters <- c("blood vessel development", "response to lipoprotein particle", "positive regulation of cell death")
+terms <- c("myelination", "lipid oxidation")
+t_hmap <- richCluster::term_hmap(cluster_result, clusters, terms, value_type="Padj")
 t_hmap
 
-c_bar <- RichCluster::cluster_bar(cluster_result)
+c_bar <- richCluster::cluster_bar(cluster_result)
 c_bar
 
-t_bar <- RichCluster::term_bar(cluster_result, 48)
+t_bar <- richCluster::term_bar(cluster_result, 1)
 t_bar
 
-c_dot <- RichCluster::cluster_dot(cluster_result)
+c_dot <- richCluster::cluster_dot(cluster_result)
 c_dot
 
-t_dot <- RichCluster::term_dot(cluster_result, 48)
+t_dot <- richCluster::term_dot(cluster_result, 1)
 t_dot
 
-cluster_df <- RichCluster::export_df(cluster_result)
+cluster_df <- richCluster::export_df(cluster_result)
+
 # write.csv(cluster_df, "~/Downloads/cluster_df.csv", row.names=FALSE)
+
+
+# example of what workflow using the functions looks like
+test_workflow <- function(cluster_result, min_terms=5) {
+  
+  # Testing: Choose one to comment out and test
+  # result <- richCluster::all_clusters_hmap(full_clusterdf, "Padj")
+  # result <- richCluster::cluster_correlation_hmap(final_clusters, distance_matrix, 3)
+  result <- richCluster::cluster_network(final_clusters, distance_matrix, 1)
+  # result <- richCluster::full_network(distance_matrix[1:30, 1:30])
+  return(result)
+  
+}

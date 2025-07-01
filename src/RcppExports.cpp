@@ -12,7 +12,7 @@ Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
 
 // runRichCluster
 Rcpp::List runRichCluster(Rcpp::CharacterVector terms, Rcpp::CharacterVector geneIDs, std::string distanceMetric, double distanceCutoff, std::string linkageMethod, double linkageCutoff);
-RcppExport SEXP _RichCluster_runRichCluster(SEXP termsSEXP, SEXP geneIDsSEXP, SEXP distanceMetricSEXP, SEXP distanceCutoffSEXP, SEXP linkageMethodSEXP, SEXP linkageCutoffSEXP) {
+RcppExport SEXP _richCluster_runRichCluster(SEXP termsSEXP, SEXP geneIDsSEXP, SEXP distanceMetricSEXP, SEXP distanceCutoffSEXP, SEXP linkageMethodSEXP, SEXP linkageCutoffSEXP) {
 BEGIN_RCPP
     Rcpp::RObject rcpp_result_gen;
     Rcpp::RNGScope rcpp_rngScope_gen;
@@ -28,11 +28,11 @@ END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
-    {"_RichCluster_runRichCluster", (DL_FUNC) &_RichCluster_runRichCluster, 6},
+    {"_richCluster_runRichCluster", (DL_FUNC) &_richCluster_runRichCluster, 6},
     {NULL, NULL, 0}
 };
 
-RcppExport void R_init_RichCluster(DllInfo *dll) {
+RcppExport void R_init_richCluster(DllInfo *dll) {
     R_registerRoutines(dll, NULL, CallEntries, NULL, NULL);
     R_useDynamicSymbols(dll, FALSE);
 }

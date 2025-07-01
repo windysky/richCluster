@@ -3,9 +3,9 @@
 #' @import Rcpp
 #' @export
 launch_shiny <- function() {
-  appDir <- system.file("application", package = "RichCluster")
+  appDir <- system.file("application", package = "richCluster")
   if (appDir == "") {
-    stop("Could not find application. Try re-installing `RichCluster`.", call. = FALSE)
+    stop("Could not find application. Try re-installing `richCluster`.", call. = FALSE)
   }
 
   # Source all R scripts from subdirectories
@@ -18,7 +18,7 @@ launch_shiny <- function() {
   }
 
   # Source scripts in subdirectories
-  sourceDir(system.file("R/modules", package = "RichCluster"))
+  sourceDir(system.file("R/modules", package = "richCluster"))
 
   shiny::runApp(appDir, display.mode = "normal")
 }

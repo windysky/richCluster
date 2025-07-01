@@ -11,7 +11,7 @@ library(plotly)
 
 ui <- function(request) {
   dashboardPage(
-    dashboardHeader(title = "RichCluster"),
+    dashboardHeader(title = "richCluster"),
     dashboardSidebar(
       sidebarMenu(
         menuItem("Home", icon=icon("house"), tabName="home_tab"),

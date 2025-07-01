@@ -1,6 +1,6 @@
 //
 //  DistanceMatrix.h
-//  RichCluster
+//  richCluster
 //
 //  Created by Sarah on 6/2/25.
 //

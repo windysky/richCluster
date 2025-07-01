@@ -12,5 +12,5 @@ source_files <- function(path) {
 }
 
 # Source all R scripts in /modules (shiny), /scripts (R)
-source_files(system.file("modules", package = "RichCluster"))
-# source_files(system.file("scripts", package = "RichCluster"))
+source_files(system.file("modules", package = "richCluster"))
+# source_files(system.file("scripts", package = "richCluster"))

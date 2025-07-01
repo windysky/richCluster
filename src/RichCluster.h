@@ -1,12 +1,12 @@
 //
-//  RichCluster.h
-//  RichCluster
+//  richCluster.h
+//  richCluster
 //
 //  Created by Sarah on 6/1/25.
 //
 
-#ifndef RichCluster_h
-#define RichCluster_h
+#ifndef richCluster_h
+#define richCluster_h
 
 #include <Rcpp.h>
 #include <stdexcept>
@@ -23,9 +23,9 @@
 #include "LinkageMethod.h"
 
 
-class RichCluster {
+class richCluster {
 public:
-  RichCluster(Rcpp::CharacterVector r_terms,
+  richCluster(Rcpp::CharacterVector r_terms,
               Rcpp::CharacterVector r_geneIDs,
               std::string distanceMetric, double distanceCutoff,
               std::string linkageMethod, double linkageCutoff):
@@ -36,7 +36,7 @@ public:
   
   // initialize data structures
   distMatrix(n_terms, terms),
-  adjList(),
+  adjList(n_terms),
   clusList(terms),
   
   // initialize metrics
@@ -83,4 +83,4 @@ private:
   LinkageMethod lm;
 };
 
-#endif /* RichCluster_h */
+#endif /* richCluster_h */

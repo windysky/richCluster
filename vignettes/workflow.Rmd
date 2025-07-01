@@ -1,10 +1,10 @@
 ---
-title: "Workflow: RichCluster Example"
+title: "Workflow: richCluster Example"
 author: "Sarah Hong"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Workflow: RichCluster Example}
+  %\VignetteIndexEntry{Workflow: richCluster Example}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -14,7 +14,7 @@ knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
 )
-library(RichCluster)
+library(richCluster)
 library(dplyr)
 library(tidyr)
 ```
@@ -24,16 +24,16 @@ library(tidyr)
 ```{r load-cluster-data}
 load_cluster_data <- function(from_scratch=FALSE) {
   if (!from_scratch) {
-    cluster_result <- readRDS(system.file("extdata", "cluster_result.rds", package = "RichCluster"))
+    cluster_result <- readRDS(system.file("extdata", "cluster_result.rds", package = "richCluster"))
   } else {
-    rr1 <- read.delim(system.file("extdata", "go1.txt", package = "RichCluster"))
-    rr2 <- read.delim(system.file("extdata", "go2.txt", package = "RichCluster"))
+    rr1 <- read.delim(system.file("extdata", "HF36wk_vs_HF12wk.txt", package="richCluster"))
+    rr2 <- read.delim(system.file("extdata", "HF36wk_vs_WT12wk.txt", package="richCluster"))
     
     enrichment_results <- list(rr1, rr2)
-    rr_names <- c('7mo_DEG', '7mo_DMR')
+    rr_names <- c('hf36_vs_hf12', 'wt36_vs_wt12')
     
-    cluster_result <- RichCluster::cluster(
-      enrichment_results, df_names = rr_names, min_terms = 5,
+    cluster_result <- richCluster::cluster(
+      enrichment_results, df_names = rr_names, min_terms = 3, min_value=0.0001,
       distance_metric = "kappa", distance_cutoff = 0.5,
       linkage_method = "average", linkage_cutoff = 0.5
     )
@@ -64,20 +64,20 @@ c_dot
 ## Term-Level Visualizations
 
 ```{r term-hmap}
-clusters <- c("mating plug formation", "regulation of protein refolding", "regulation of plasma cell differentiation")
-terms <- c("neuroblast proliferation", "regulation of tissue remodeling", "protein secretion")
+clusters <- c("blood vessel development", "response to lipoprotein particle", "positive regulation of cell death")
+terms <- c("myelination", "lipid oxidation")
 
 t_hmap <- term_hmap(cluster_result, clusters, terms, value_type = "Padj")
 t_hmap
 ```
 
 ```{r term-bar}
-t_bar <- term_bar(cluster_result, 48)
+t_bar <- term_bar(cluster_result, 1)
 t_bar
 ```
 
 ```{r term-dot}
-t_dot <- term_dot(cluster_result, 48)
+t_dot <- term_dot(cluster_result, 1)
 t_dot
 ```
 

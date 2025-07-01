@@ -109,7 +109,7 @@ clusterTabServer <- function(id, richnames, richsets) {
       # go1 and go2
       for (i in 1:2) {
         file_name <- paste0('go', i)
-        file_path <- system.file('extdata', paste0(file_name, '.txt'), package='RichCluster')
+        file_path <- system.file('extdata', paste0(file_name, '.txt'), package='richCluster')
         rich_df <- read.delim(file_path)
 
         richsets[[file_name]] <- rich_df
@@ -128,7 +128,7 @@ clusterTabServer <- function(id, richnames, richsets) {
           richsets[[richname]]
         })
 
-        merged_richsets <- RichCluster::merge_richsets(rich_dfs)
+        merged_richsets <- richCluster::merge_richsets(rich_dfs)
         term_vec <- merged_richsets$Term
         geneID_vec <- merged_richsets$GeneID
         padj_vec <- merged_richsets$Padj
@@ -136,7 +136,7 @@ clusterTabServer <- function(id, richnames, richsets) {
         incProgress(0.3, message=NULL)
 
         cluster_results <- tryCatch(
-          RichCluster::RichCluster(
+          richCluster::richCluster(
             "kappa",
             0.5,
             "DAVID",
@@ -162,8 +162,8 @@ clusterTabServer <- function(id, richnames, richsets) {
 
           output$merged_seeds <- DT::renderDataTable(merged_seeds())
 
-          final_clusters(RichCluster::filter_merged_seeds(merged_seeds(), 5))
-          full_clusterdf(RichCluster::make_full_clusterdf(final_clusters(), merged_richsets()))
+          final_clusters(richCluster::filter_merged_seeds(merged_seeds(), 5))
+          full_clusterdf(richCluster::make_full_clusterdf(final_clusters(), merged_richsets()))
 
         }
         incProgress(0.1, message=NULL)
@@ -175,19 +175,19 @@ clusterTabServer <- function(id, richnames, richsets) {
       req(input$min_terms)
       req(merged_seeds())
 
-      final_clusters(RichCluster::filter_merged_seeds(merged_seeds(), input$min_terms))
-      full_clusterdf(RichCluster::make_full_clusterdf(final_clusters(), merged_richsets()))
+      final_clusters(richCluster::filter_merged_seeds(merged_seeds(), input$min_terms))
+      full_clusterdf(richCluster::make_full_clusterdf(final_clusters(), merged_richsets()))
 
       # output$merged_seeds <- DT::renderDataTable(final_clusters)
       # output$full_heatmap <- plotly::renderPlotly({
-      #   RichCluster::all_clusters_hmap(final_clusters(), "Padj")
+      #   richCluster::all_clusters_hmap(final_clusters(), "Padj")
       # })
     })
 
     # observe({
     #   if (!is.null(final_clusters())) {
     #     output$full_heatmap <- plotly::renderPlotly({
-    #       RichCluster::all_clusters_hmap(final_clusters(), "Padj")
+    #       richCluster::all_clusters_hmap(final_clusters(), "Padj")
     #     })
     #   }
     # })
@@ -202,11 +202,11 @@ clusterTabServer <- function(id, richnames, richsets) {
 
     plot_all_clusters_hmap <- reactive({
       req(!is.null(full_clusterdf()))
-      hmap <- RichCluster::all_clusters_hmap(full_clusterdf(), "Padj")
+      hmap <- richCluster::all_clusters_hmap(full_clusterdf(), "Padj")
       return(hmap)
     })
     output$full_heatmap = plotly::renderPlotly({
-      hmap <- RichCluster::all_clusters_hmap(full_clusterdf(), "Padj")
+      hmap <- richCluster::all_clusters_hmap(full_clusterdf(), "Padj")
     })
 
   })

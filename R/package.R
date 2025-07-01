@@ -1,6 +1,6 @@
-#' RichCluster: Fast, Robust Clustering Algorithms for Gene Enrichment Data
+#' richCluster: Fast, Robust Clustering Algorithms for Gene Enrichment Data
 #'
-#' RichCluster is a fast C++ agglomerative hierarchical clustering algorithm packaged 
+#' richCluster is a fast C++ agglomerative hierarchical clustering algorithm packaged 
 #' into easily callable R functions, designed to help cluster biological 'terms' based on how similar 
 #' of genes are expressed in their activation.
 #'
@@ -46,7 +46,7 @@
 #'   \item \code{\link{export_df}}: Converts clustering results to a tidy data frame
 #' }
 #' @docType _PACKAGE
-#' @name RichCluster
-#' @useDynLib RichCluster
+#' @name richCluster
+#' @useDynLib richCluster
 #' @include load_all.R
 NULL

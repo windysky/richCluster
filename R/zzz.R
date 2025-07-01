@@ -1,3 +1,3 @@
-#' @useDynLib RichCluster, .registration = TRUE
+#' @useDynLib richCluster, .registration = TRUE
 #' @importFrom Rcpp evalCpp
 NULL

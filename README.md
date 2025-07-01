@@ -1,5 +1,5 @@
-## RichCluster
-RichCluster is a fast C++ agglomerative hierarchical clustering algorithm packaged into easily callable R functions, designed to help cluster biological 'terms' based on how similar of genes are expressed in their activation. 
+## richCluster
+richCluster is a fast C++ agglomerative hierarchical clustering algorithm packaged into easily callable R functions, designed to help cluster biological 'terms' based on how similar of genes are expressed in their activation. 
 
 Terms are clustered together based on how many genes are shared between them. We support two different types of similarity scores:
 - Kappa score
@@ -18,7 +18,7 @@ The package is currently under review in submission to CRAN, but for now users c
 ```shell
 install.packages("devtools")
 require(devtools)
-install_github("hyuncat/RichCluster")
+install_github("hyuncat/richCluster")
 ```
 
 ## Usage
@@ -29,7 +29,7 @@ The basic flow is as follows. A demo can be followed along in the `tests.R` scri
 The user can supply a list of enrichment results, and simply run `cluster()` with certain options to return a `ClusterResult` named list object which is all you need to pass in order to the various visualization functions.
 
 ## Clustering
-The goal of the RichCluster package is to simplify the workflow of clustering biological terms across multiple enrichment results. 
+The goal of the richCluster package is to simplify the workflow of clustering biological terms across multiple enrichment results. 
 
 - For instance, if a user has 3 different enrichment data corresponding to the same mouse at different stages of a disease and wants to directly compare those results side by side.
 
@@ -121,7 +121,7 @@ As well as an option to export as a dataframe (CSV).
 To view the data in excel / as a dataframe, users can export the final clustered data as a dataframe with `export_df` and save their results to a csv as follows.
 
 ```r
-cluster_df <- RichCluster::export_df(cluster_result)
+cluster_df <- richCluster::export_df(cluster_result)
 write.csv(cluster_df, "~/Downloads/cluster_df.csv", row.names=FALSE)
 ```
 

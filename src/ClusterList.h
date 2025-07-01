@@ -1,6 +1,6 @@
 //
 //  ClusterList.h
-//  RichCluster
+//  richCluster
 //
 //  Created by Sarah on 6/2/25.
 //
@@ -27,6 +27,7 @@ public:
   std::list<Cluster>& getList() {return clusterList;};
   Rcpp::DataFrame export_r() const;
   void deduplicate();
+  size_t size() const { return clusterList.size(); }
   
 private:
   std::vector<std::string> terms;

@@ -7,7 +7,7 @@ NULL
 #'
 #' This function generates a network graph for the entire distance matrix.
 #'
-#' @param cluster_result Cluster result named list from RichCluster::cluster()
+#' @param cluster_result Cluster result named list from richCluster::cluster()
 #' @return An interactive networkD3 network graph.
 #' @export
 full_network <- function(cluster_result) {

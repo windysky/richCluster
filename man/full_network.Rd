@@ -7,7 +7,7 @@
 full_network(cluster_result)
 }
 \arguments{
-\item{cluster_result}{Cluster result named list from RichCluster::cluster()}
+\item{cluster_result}{Cluster result named list from richCluster::cluster()}
 }
 \value{
 An interactive networkD3 network graph.

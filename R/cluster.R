@@ -51,7 +51,7 @@ cluster <- function(enrichment_results, df_names=NULL, min_terms=5, min_value=0.
 
   # throw error if cluster options are invalid
 
-  cluster_result <- RichCluster::runRichCluster(
+  cluster_result <- richCluster::runRichCluster(
     term_vec, geneID_vec,
     distance_metric, distance_cutoff,
     linkage_method, linkage_cutoff
@@ -166,5 +166,5 @@ make_full_clusterdf <- function(final_clusters, merged_df) {
 #'
 #' @export
 runRichCluster <- function(terms, geneIDs, distanceMetric, distanceCutoff, linkageMethod, linkageCutoff) {
-  .Call(`_RichCluster_runRichCluster`, terms, geneIDs, distanceMetric, distanceCutoff, linkageMethod, linkageCutoff)
+  .Call(`_richCluster_runRichCluster`, terms, geneIDs, distanceMetric, distanceCutoff, linkageMethod, linkageCutoff)
 }

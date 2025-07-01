@@ -2,7 +2,7 @@
 homeTabUI <- function(id, tabName) {
   ns <- NS(id)
   tabItem(tabName = tabName,
-          h1("RichCluster Shiny App"),
+          h1("richCluster Shiny App"),
           p("Developed by Sarah Hong")
   )
 }

@@ -11,7 +11,7 @@
 #include "StringUtils.h"
 #include <Rcpp.h>
 
-void RichCluster::computeDistances() {
+void richCluster::computeDistances() {
   Rcpp::Rcout << "Computing distances..." << std::endl;
   int totalGeneCount = StringUtils::countUniqueElements(geneIDs);
   
@@ -21,7 +21,7 @@ void RichCluster::computeDistances() {
     
     for (int j=0; j<n_terms; ++j) {
       if (i == j) {
-        distMatrix.setDistance(RichCluster::SAME_TERM_DISTANCE, i, j);
+        distMatrix.setDistance(richCluster::SAME_TERM_DISTANCE, i, j);
         continue;
       }
       // unordered set of term2 genes
@@ -41,10 +41,11 @@ void RichCluster::computeDistances() {
   Rcpp::Rcout << "Done filling out DistanceMatrix." << std::endl;
 }
 
-void RichCluster::filterSeeds() {
+// go through adjacency list and find the best subset of each seed
+void richCluster::filterSeeds() {
   Rcpp::Rcout << "Filtering seeds..." << std::endl;
   
-  for (const auto& [node, neighbors] : RichCluster::adjList.getAdjList()) {
+  for (const auto& [node, neighbors] : richCluster::adjList.getAdjList()) {
     std::unordered_set<int> neighbors_set{neighbors};
     std::unordered_set<int> cluster = filterSeed(node, neighbors_set);
     clusList.addCluster(cluster);
@@ -52,7 +53,7 @@ void RichCluster::filterSeeds() {
   Rcpp::Rcout << "Done filtering." << std::endl;
 }
 
-std::unordered_set<int> RichCluster::filterSeed(
+std::unordered_set<int> richCluster::filterSeed(
     int node, std::unordered_set<int> neighbors
 ) {
   std::unordered_set<int> cluster{node};
@@ -83,7 +84,7 @@ std::unordered_set<int> RichCluster::filterSeed(
 }
 
 
-void RichCluster::mergeClusters() {
+void richCluster::mergeClusters() {
   Rcpp::Rcout << "Starting cluster merging..." << std::endl;
 
   bool mergingPossible = true;
@@ -114,7 +115,7 @@ void RichCluster::mergeClusters() {
   clusList.deduplicate();
 }
 
-ClusterList::ClusterIt RichCluster::findBestMergePartner(
+ClusterList::ClusterIt richCluster::findBestMergePartner(
     ClusterList::ClusterIt it1, std::list<std::unordered_set<int>>& clusters
 ) {
   double bestLink = -1.0;
@@ -141,11 +142,11 @@ Rcpp::List runRichCluster(Rcpp::CharacterVector terms,
                           Rcpp::CharacterVector geneIDs,
                           std::string distanceMetric, double distanceCutoff,
                           std::string linkageMethod, double linkageCutoff) {
-  Rcpp::Rcout << "Starting RichCluster..." << std::endl;
+  Rcpp::Rcout << "Starting richCluster..." << std::endl;
   Rcpp::Rcout << "terms.size = " << terms.size() << std::endl;
   Rcpp::Rcout << "geneIDs.size = " << geneIDs.size() << std::endl;
   try {
-    RichCluster RC(terms, geneIDs,
+    richCluster RC(terms, geneIDs,
                    distanceMetric, distanceCutoff,
                    linkageMethod, linkageCutoff);
     RC.computeDistances();

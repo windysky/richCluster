@@ -1,6 +1,6 @@
-\name{RichCluster-package}
-\alias{RichCluster-package}
-\alias{RichCluster}
+\name{richCluster-package}
+\alias{richCluster-package}
+\alias{richCluster}
 \docType{package}
 \title{
   A short title line describing what the package does
