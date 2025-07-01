@@ -1,7 +1,7 @@
 {
     "args": [
         "-isysroot",
-        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk",
+        "/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk",
         "-std=c++17",
         "-I/Library/Frameworks/R.framework/Resources/include",
         "-DNDEBUG",
@@ -10,16 +10,15 @@
         "-I/Users/sarah/Library/Caches/org.R-project.R/R/renv/library/RichCluster-402622c3/macos/R-4.5/aarch64-apple-darwin20/Rcpp/include",
         "-DEIGEN_DONT_VECTORIZE",
         "-I/Library/Developer/CommandLineTools/usr/lib/clang/15.0.0/include",
-        "-I/usr/local/include",
-        "-I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/c++/v1",
-        "-I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/clang/15.0.0/include",
-        "-I/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include",
-        "-I/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include"
+        "-I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1",
+        "-I/Library/Developer/CommandLineTools/usr/lib/clang/15.0.0/include",
+        "-I/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include",
+        "-I/Library/Developer/CommandLineTools/usr/include"
     ],
     "pch": "Rcpp",
     "is_cpp": true,
-    "hash": "17489568031751394757",
-    "compiler": "4095371413057809912",
+    "hash": "17489568031751400250",
+    "compiler": "12465587338919104339",
     "rversion": "4.5.0",
     "dbversion": 4
 }

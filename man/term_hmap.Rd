@@ -22,6 +22,8 @@ Defaults to `"Padj"`.}
 
 \item{aggr_type}{A function used to aggregate values across clusters (e.g., `mean` or `median`).
 Defaults to `mean`.}
+
+\item{title}{An optional parameter to title the plot something else.}
 }
 \value{
 An interactive heatmap object (`plotly`), displaying the -log10(Padj) values

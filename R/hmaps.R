@@ -114,6 +114,7 @@ cluster_hmap <- function(cluster_result, clusters=NULL, value_type="Padj", aggr_
 #'   Defaults to `"Padj"`.
 #' @param aggr_type A function used to aggregate values across clusters (e.g., `mean` or `median`).
 #'   Defaults to `mean`.
+#' @param title An optional parameter to title the plot something else.
 #'
 #' @return An interactive heatmap object (`plotly`), displaying the -log10(Padj) values
 #'   across clusters, with representative terms as row labels and color-coded cluster annotations.

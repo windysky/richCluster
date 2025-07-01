@@ -1,7 +1,7 @@
 [
     {
         "file": "/Users/sarah/Desktop/hurlab/RichCluster/src/AdjacencyList.cpp",
-        "file_last_write": 1750455927.0,
+        "file_last_write": 1751394757.0,
         "definitions": [
             {
                 "usr": "c:@S@AdjacencyList@F@addNeighbor#I#I#",
@@ -28,7 +28,7 @@
     },
     {
         "file": "/Users/sarah/Desktop/hurlab/RichCluster/src/AdjacencyList.h",
-        "file_last_write": 1750785410.0,
+        "file_last_write": 1751395440.0,
         "definitions": [
             {
                 "usr": "c:@S@AdjacencyList",
@@ -46,8 +46,18 @@
                 "parent_name": "AdjacencyList",
                 "name": "getAdjList",
                 "file": "/Users/sarah/Desktop/hurlab/RichCluster/src/AdjacencyList.h",
-                "line": 22,
+                "line": 26,
                 "column": 59,
+                "hidden": false
+            },
+            {
+                "usr": "c:@S@AdjacencyList@F@size#1",
+                "kind": 7,
+                "parent_name": "AdjacencyList",
+                "name": "size",
+                "file": "/Users/sarah/Desktop/hurlab/RichCluster/src/AdjacencyList.h",
+                "line": 30,
+                "column": 10,
                 "hidden": false
             }
         ],
@@ -55,7 +65,7 @@
     },
     {
         "file": "/Users/sarah/Desktop/hurlab/RichCluster/src/ClusterList.cpp",
-        "file_last_write": 1750455927.0,
+        "file_last_write": 1751394757.0,
         "definitions": [
             {
                 "usr": "c:@S@ClusterList@F@export_r#1",
@@ -82,7 +92,7 @@
     },
     {
         "file": "/Users/sarah/Desktop/hurlab/RichCluster/src/ClusterList.h",
-        "file_last_write": 1750455927.0,
+        "file_last_write": 1751394757.0,
         "definitions": [
             {
                 "usr": "c:@S@ClusterList",
@@ -133,13 +143,23 @@
                 "line": 27,
                 "column": 23,
                 "hidden": false
+            },
+            {
+                "usr": "c:@S@ClusterList@F@size#1",
+                "kind": 7,
+                "parent_name": "ClusterList",
+                "name": "size",
+                "file": "/Users/sarah/Desktop/hurlab/RichCluster/src/ClusterList.h",
+                "line": 30,
+                "column": 10,
+                "hidden": false
             }
         ],
         "hidden": false
     },
     {
         "file": "/Users/sarah/Desktop/hurlab/RichCluster/src/DistanceMatrix.cpp",
-        "file_last_write": 1750455927.0,
+        "file_last_write": 1751394757.0,
         "definitions": [
             {
                 "usr": "c:@S@DistanceMatrix@F@getDistanceIndex#I#I#1",
@@ -186,7 +206,7 @@
     },
     {
         "file": "/Users/sarah/Desktop/hurlab/RichCluster/src/DistanceMatrix.h",
-        "file_last_write": 1750455927.0,
+        "file_last_write": 1751394757.0,
         "definitions": [
             {
                 "usr": "c:@S@DistanceMatrix",
@@ -203,7 +223,7 @@
     },
     {
         "file": "/Users/sarah/Desktop/hurlab/RichCluster/src/DistanceMetric.cpp",
-        "file_last_write": 1750455927.0,
+        "file_last_write": 1751394757.0,
         "definitions": [
             {
                 "usr": "c:@S@DistanceMetric@F@computeDistance#&1I#S0_#I#",
@@ -240,7 +260,7 @@
     },
     {
         "file": "/Users/sarah/Desktop/hurlab/RichCluster/src/DistanceMetric.h",
-        "file_last_write": 1750455927.0,
+        "file_last_write": 1751394757.0,
         "definitions": [
             {
                 "usr": "c:@S@DistanceMetric",
@@ -267,7 +287,7 @@
     },
     {
         "file": "/Users/sarah/Desktop/hurlab/RichCluster/src/LinkageMethod.cpp",
-        "file_last_write": 1750455927.0,
+        "file_last_write": 1751394757.0,
         "definitions": [
             {
                 "usr": "c:@S@LinkageMethod@F@computeLinkage#&1$@N@std@N@__1@S@unordered_set>#I#$@N@std@N@__1@S@hash>#I#$@N@std@N@__1@S@equal_to>#I#$@N@std@N@__1@S@allocator>#I#S0_#",
@@ -324,7 +344,7 @@
     },
     {
         "file": "/Users/sarah/Desktop/hurlab/RichCluster/src/LinkageMethod.h",
-        "file_last_write": 1750455927.0,
+        "file_last_write": 1751394757.0,
         "definitions": [
             {
                 "usr": "c:@S@LinkageMethod",
@@ -351,12 +371,12 @@
     },
     {
         "file": "/Users/sarah/Desktop/hurlab/RichCluster/src/RichCluster.cpp",
-        "file_last_write": 1750785250.0,
+        "file_last_write": 1751397012.0,
         "definitions": [
             {
-                "usr": "c:@S@RichCluster@F@computeDistances#",
+                "usr": "c:@S@richCluster@F@computeDistances#",
                 "kind": 7,
-                "parent_name": "RichCluster",
+                "parent_name": "richCluster",
                 "name": "computeDistances",
                 "file": "/Users/sarah/Desktop/hurlab/RichCluster/src/RichCluster.cpp",
                 "line": 14,
@@ -364,52 +384,52 @@
                 "hidden": false
             },
             {
-                "usr": "c:@S@RichCluster@F@filterSeeds#",
+                "usr": "c:@S@richCluster@F@filterSeeds#",
                 "kind": 7,
-                "parent_name": "RichCluster",
+                "parent_name": "richCluster",
                 "name": "filterSeeds",
                 "file": "/Users/sarah/Desktop/hurlab/RichCluster/src/RichCluster.cpp",
-                "line": 44,
+                "line": 45,
                 "column": 19,
                 "hidden": false
             },
             {
-                "usr": "c:@S@RichCluster@F@filterSeed#I#$@N@std@N@__1@S@unordered_set>#I#$@N@std@N@__1@S@hash>#I#$@N@std@N@__1@S@equal_to>#I#$@N@std@N@__1@S@allocator>#I#",
+                "usr": "c:@S@richCluster@F@filterSeed#I#I#",
                 "kind": 7,
-                "parent_name": "RichCluster",
-                "name": "filterSeed(int, std::unordered_set<int>)",
+                "parent_name": "richCluster",
+                "name": "filterSeed(int, int)",
                 "file": "/Users/sarah/Desktop/hurlab/RichCluster/src/RichCluster.cpp",
-                "line": 55,
+                "line": 56,
                 "column": 38,
                 "hidden": false
             },
             {
-                "usr": "c:@S@RichCluster@F@mergeClusters#",
+                "usr": "c:@S@richCluster@F@mergeClusters#",
                 "kind": 7,
-                "parent_name": "RichCluster",
+                "parent_name": "richCluster",
                 "name": "mergeClusters",
                 "file": "/Users/sarah/Desktop/hurlab/RichCluster/src/RichCluster.cpp",
-                "line": 86,
+                "line": 87,
                 "column": 19,
                 "hidden": false
             },
             {
-                "usr": "c:@S@RichCluster@F@findBestMergePartner#$@N@std@N@__1@S@__list_iterator>#$@N@std@N@__1@S@unordered_set>#I#$@N@std@N@__1@S@hash>#I#$@N@std@N@__1@S@equal_to>#I#$@N@std@N@__1@S@allocator>#I#*v#&$@N@std@N@__1@S@list>#S1_#$@N@std@N@__1@S@allocator>#S1_#",
+                "usr": "c:@S@richCluster@F@findBestMergePartner#I#&I#",
                 "kind": 7,
-                "parent_name": "RichCluster",
-                "name": "findBestMergePartner(ClusterList::ClusterIt, std::list<std::unordered_set<int>> &)",
+                "parent_name": "richCluster",
+                "name": "findBestMergePartner(int, int &)",
                 "file": "/Users/sarah/Desktop/hurlab/RichCluster/src/RichCluster.cpp",
-                "line": 117,
+                "line": 118,
                 "column": 37,
                 "hidden": false
             },
             {
-                "usr": "c:@F@runRichCluster#$@N@Rcpp@S@Vector>#VI16#@N@Rcpp@ST>1#T@PreserveStorage#S0_#$@N@std@N@__1@S@basic_string>#C#$@N@std@N@__1@S@char_traits>#C#$@N@std@N@__1@S@allocator>#C#d#S1_#d#",
+                "usr": "c:@F@runRichCluster#I#I#I#d#I#d#",
                 "kind": 6,
                 "parent_name": "",
-                "name": "runRichCluster(Rcpp::CharacterVector, Rcpp::CharacterVector, std::string, double, std::string, double)",
+                "name": "runRichCluster(Rcpp::CharacterVector, Rcpp::CharacterVector, int, double, int, double)",
                 "file": "/Users/sarah/Desktop/hurlab/RichCluster/src/RichCluster.cpp",
-                "line": 140,
+                "line": 141,
                 "column": 12,
                 "hidden": false
             }
@@ -418,22 +438,22 @@
     },
     {
         "file": "/Users/sarah/Desktop/hurlab/RichCluster/src/RichCluster.h",
-        "file_last_write": 1750785378.0,
+        "file_last_write": 1751395403.0,
         "definitions": [
             {
-                "usr": "c:@S@RichCluster",
+                "usr": "c:@S@richCluster",
                 "kind": 2,
                 "parent_name": "",
-                "name": "RichCluster",
+                "name": "richCluster",
                 "file": "/Users/sarah/Desktop/hurlab/RichCluster/src/RichCluster.h",
                 "line": 26,
                 "column": 7,
                 "hidden": false
             },
             {
-                "usr": "c:@S@RichCluster@F@distFct#",
+                "usr": "c:@S@richCluster@F@distFct#",
                 "kind": 7,
-                "parent_name": "RichCluster",
+                "parent_name": "richCluster",
                 "name": "distFct",
                 "file": "/Users/sarah/Desktop/hurlab/RichCluster/src/RichCluster.h",
                 "line": 56,
@@ -441,9 +461,9 @@
                 "hidden": false
             },
             {
-                "usr": "c:@S@RichCluster@F@export_dm#1",
+                "usr": "c:@S@richCluster@F@export_dm#1",
                 "kind": 7,
-                "parent_name": "RichCluster",
+                "parent_name": "richCluster",
                 "name": "export_dm",
                 "file": "/Users/sarah/Desktop/hurlab/RichCluster/src/RichCluster.h",
                 "line": 61,
@@ -451,9 +471,9 @@
                 "hidden": false
             },
             {
-                "usr": "c:@S@RichCluster@F@export_cl#1",
+                "usr": "c:@S@richCluster@F@export_cl#1",
                 "kind": 7,
-                "parent_name": "RichCluster",
+                "parent_name": "richCluster",
                 "name": "export_cl",
                 "file": "/Users/sarah/Desktop/hurlab/RichCluster/src/RichCluster.h",
                 "line": 62,
@@ -465,7 +485,7 @@
     },
     {
         "file": "/Users/sarah/Desktop/hurlab/RichCluster/src/StringUtils.cpp",
-        "file_last_write": 1750455927.0,
+        "file_last_write": 1751394757.0,
         "definitions": [
             {
                 "usr": "c:@S@StringUtils@F@splitStringToVector#&1I#S0_#",
@@ -542,7 +562,7 @@
     },
     {
         "file": "/Users/sarah/Desktop/hurlab/RichCluster/src/StringUtils.h",
-        "file_last_write": 1750455927.0,
+        "file_last_write": 1751394757.0,
         "definitions": [
             {
                 "usr": "c:@S@StringUtils",

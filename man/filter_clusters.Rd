@@ -7,9 +7,9 @@
 filter_clusters(all_clusters, min_terms)
 }
 \arguments{
-\item{min_terms}{An integer specifying the minimum number of terms required in a cluster.}
+\item{all_clusters}{A dataframe containing the merged seeds with column named `ClusterIndices`.}
 
-\item{full_clusters}{A dataframe containing the merged seeds with column named `ClusterIndices`.}
+\item{min_terms}{An integer specifying the minimum number of terms required in a cluster.}
 }
 \value{
 The filtered data frame with clusters filtered to include only those with at least `min_terms` terms.

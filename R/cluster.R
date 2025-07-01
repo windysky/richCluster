@@ -107,7 +107,7 @@ validate_inputs <- function(enrichment_results, df_names=NA_character_,
 #' Filters the full list of clusters by keeping only those with greater
 #' than or equal to min_terms # of terms.
 #'
-#' @param full_clusters A dataframe containing the merged seeds with column named `ClusterIndices`.
+#' @param all_clusters A dataframe containing the merged seeds with column named `ClusterIndices`.
 #' @param min_terms An integer specifying the minimum number of terms required in a cluster.
 #'
 #' @return The filtered data frame with clusters filtered to include only those with at least `min_terms` terms.
