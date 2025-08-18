@@ -60,6 +60,8 @@ cluster <- function(enrichment_results, df_names=NULL, min_terms=5, min_value=0.
   # add the original stuff to the cluster_result
   # (helps visualizations later)
   cluster_options <- list(
+    min_terms = min_terms,
+    min_value = min_value,
     distance_metric = distance_metric,
     distance_cutoff = distance_cutoff,
     linkage_method = linkage_method,

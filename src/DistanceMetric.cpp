@@ -58,9 +58,13 @@ double DistanceMetric::getKappa(const std::unordered_set<std::string>& t1_genes,
 double DistanceMetric::getJaccard(const std::unordered_set<std::string>& t1_genes,
                                   const std::unordered_set<std::string>& t2_genes) {
   std::unordered_set<std::string> intersection; 
-  std::set_intersection(t1_genes.begin(), t1_genes.end(), t2_genes.begin(), t2_genes.end(), std::inserter(intersection, intersection.begin()));
-  
-  double common = static_cast<double>(intersection.size()); // number of common genes
+  double common = 0;
+  for (const auto& gene : t1_genes) {
+    if (t2_genes.count(gene)) {
+      ++common;
+    }
+  }
+  // double common = static_cast<double>(intersection.size()); // number of common genes
   double total = static_cast<double>(t1_genes.size()) + static_cast<double>(t2_genes.size());
   
   return common / total;
