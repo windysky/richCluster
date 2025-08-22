@@ -19,8 +19,6 @@ double LinkageMethod::computeLinkage(const Cluster& cluster1, const Cluster& clu
     return LinkageMethod::average(cluster1, cluster2);
   else if (method=="ward")
     return LinkageMethod::ward(cluster1, cluster2);
-  else if (method=="david")
-    return LinkageMethod::david(cluster1, cluster2);
   else
     return 0;
 }
@@ -82,50 +80,5 @@ double LinkageMethod::average(const Cluster& cluster1, const Cluster& cluster2) 
 
 
 double LinkageMethod::ward(const Cluster& cluster1, const Cluster& cluster2) {
-  double nA = cluster1.size();
-  double nB = cluster2.size();
-
-  if (nA == 0 || nB == 0) {
-    return 0.0;
-  }
-
-  double delta_AA = 0.0;
-  for (int i : cluster1) {
-    for (int j : cluster1) {
-      if (i == j) continue;
-      delta_AA += distFct(i, j);
-    }
-  }
-  delta_AA /= (nA * nA);
-
-  double delta_BB = 0.0;
-  for (int i : cluster2) {
-    for (int j : cluster2) {
-      if (i == j) continue;
-      delta_BB += distFct(i, j);
-    }
-  }
-  delta_BB /= (nB * nB);
-
-  double delta_AB = 0.0;
-  for (int i : cluster1) {
-    for (int j : cluster2) {
-      delta_AB += distFct(i, j);
-    }
-  }
-  delta_AB /= (nA * nB);
-
-  return (nA * nB) / (nA + nB) * (2 * delta_AB - delta_AA - delta_BB);
-}
-
-double LinkageMethod::david(const Cluster& cluster1, const Cluster& cluster2) {
-    int linkCount = 0;
-    for (int i : cluster1) {
-        for (int j : cluster2) {
-            if (distFct(i, j) < cutoff) {
-                linkCount++;
-            }
-        }
-    }
-    return static_cast<double>(linkCount);
+  return LinkageMethod::average(cluster1, cluster2); // non-implemented for now
 }

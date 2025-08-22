@@ -98,8 +98,8 @@ validate_inputs <- function(enrichment_results, df_names=NA_character_,
   if (distance_metric != "kappa" && distance_metric != "jaccard") {
     stop("Unsupported distance metric. Only 'kappa' and 'jaccard' are supported.")
   }
-  if (linkage_method != "single" && linkage_method != "complete" && linkage_method != "average" && linkage_method != "ward" && linkage_method != "david") {
-    stop("Unsupported linkage_method. Only 'single', 'complete', 'average', 'ward', and 'david' are supported.")
+  if (linkage_method != "single" && linkage_method != "complete" && linkage_method != "average") {
+    stop("Unsupported linkage_method. Only 'single', 'complete', and 'average' is supported.")
   }
 
 }
