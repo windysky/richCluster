@@ -6,11 +6,11 @@ Terms are clustered together based on how many genes are shared between them. We
 - Jaccard index
 
 As well as different linkage criteria for iteratively merging clusters together.
-- ~~Multiple linkage (from DAVID implementation)~~ (not yet implemented)
+- Multiple linkage (from DAVID implementation)
 - Single
 - Complete
 - Average
-- ~~Ward~~ (not yet implemented)
+- Ward
 
 ## Installation
 The package is currently under review in submission to CRAN, but for now users can install the package and try out the clustering and visualization features by installing through GitHub.
@@ -62,11 +62,11 @@ After an initial grouping of terms based on having a distance score above a cert
 The default recommended should be `average`, which takes the average distance between all terms in the two clusters and uses that as the metric to merge.
 
 The total list of supported metrics includes: 
-- ~~`"david"` - DAVID multiple linkage membership~~ (not yet implemented)
+- `"david"` - DAVID multiple linkage membership
 - `"single"`
 - `"complete"`
 - `"average"`
-- ~~`"ward"` (recommended)~~ (not yet implemented)
+- `"ward"` (recommended)
 
 Again, a higher linkage_cutoff leads to stricter (smaller) clusters.
 

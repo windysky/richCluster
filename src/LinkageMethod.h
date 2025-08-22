@@ -36,6 +36,8 @@ private:
                  const Cluster& cluster2);
   double ward(const Cluster& cluster1,
               const Cluster& cluster2);
+  double david(const Cluster& cluster1,
+               const Cluster& cluster2);
 };
 
 #endif /* LinkageMethod_h */

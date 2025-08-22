@@ -27,6 +27,27 @@ load_cluster_data <- function(from_scratch=FALSE)
 
 cluster_result <- load_cluster_data(from_scratch=TRUE)
 
+# WARD LINKAGE TEST
+# ---
+ward_cluster_result <- richCluster::cluster(
+  cluster_result$df_list, df_names=cluster_result$df_names, min_terms=3, min_value=0.0001,
+  distance_metric="kappa", distance_cutoff=0.5,
+  linkage_method="ward", linkage_cutoff=0.5
+)
+print("Ward linkage clustering successful:")
+print(head(ward_cluster_result$final_clusters))
+
+# DAVID LINKAGE TEST
+# ---
+david_cluster_result <- richCluster::cluster(
+  cluster_result$df_list, df_names=cluster_result$df_names, min_terms=3, min_value=0.0001,
+  distance_metric="kappa", distance_cutoff=0.5,
+  linkage_method="david", linkage_cutoff=0.5
+)
+print("David linkage clustering successful:")
+print(head(david_cluster_result$final_clusters))
+
+
 # ALL VISUALIZATION TESTS
 # ---
 c_hmap <- richCluster::cluster_hmap(cluster_result)
