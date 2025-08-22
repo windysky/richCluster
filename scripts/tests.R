@@ -47,6 +47,19 @@ print(head(david_cluster_result$final_clusters))
 
 # ALL VISUALIZATION TESTS
 # ---
+plot_network_graph(
+  cluster_result,
+  cluster_num = 1,
+  distance_matrix = cluster_result$distance_matrix,
+  valuetype_list = c("Pvalue_1", "Padj_1")
+)
+
+compare_network_graphs_plotly(
+  cluster_result,
+  cluster_num = 1,
+  pval_names = c("Pvalue_1", "Padj_1")
+)
+
 c_hmap <- richCluster::cluster_hmap(cluster_result)
 c_hmap
 
