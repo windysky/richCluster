@@ -37,6 +37,26 @@ ward_cluster_result <- richCluster::cluster(
 print("Ward linkage clustering successful:")
 print(head(ward_cluster_result$final_clusters))
 
+# SINGLE LINKAGE TEST
+# ---
+single_cluster_result <- richCluster::cluster(
+  cluster_result$df_list, df_names=cluster_result$df_names, min_terms=3, min_value=0.0001,
+  distance_metric="kappa", distance_cutoff=0.5,
+  linkage_method="single", linkage_cutoff=0.5
+)
+print("Single linkage clustering successful:")
+print(head(single_cluster_result$final_clusters))
+
+# COMPLETE LINKAGE TEST
+# ---
+complete_cluster_result <- richCluster::cluster(
+  cluster_result$df_list, df_names=cluster_result$df_names, min_terms=3, min_value=0.0001,
+  distance_metric="kappa", distance_cutoff=0.5,
+  linkage_method="complete", linkage_cutoff=0.5
+)
+print("Complete linkage clustering successful:")
+print(head(complete_cluster_result$final_clusters))
+
 # DAVID CLUSTER TEST
 # ---
 david_cluster_result <- richCluster::david_cluster(

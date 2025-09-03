@@ -16,7 +16,9 @@ NULL
 #' @param min_value Minimum 'Pvalue' a term must have in order to be counted in final clustering
 #' @param distance_metric A string specifying the distance metric to use (e.g., "kappa").
 #' @param distance_cutoff A numeric value for the distance cutoff (0 < cutoff <= 1).
-#' @param linkage_method A string specifying the merge strategy to use (e.g., "DAVID").
+#' @param linkage_method A string specifying the linkage method to use
+#'        (e.g., "average"). Supported options are "single", "complete",
+#'        "average", and "ward".
 #' @param linkage_cutoff A numeric value between 0 and 1 for the membership cutoff.
 #'
 #' @return A named list containing:
@@ -82,7 +84,7 @@ cluster <- function(enrichment_results, df_names=NULL, min_terms=5, min_value=0.
 
 validate_inputs <- function(enrichment_results, df_names=NA_character_,
                             distance_metric="kappa", distance_cutoff=0.5,
-                            linkage_method="DAVID", linkage_cutoff=0.5) {
+                            linkage_method="average", linkage_cutoff=0.5) {
   if (!is.list(enrichment_results)) {
     stop("enrichment_results must be a list of dataframes.")
   }
@@ -98,8 +100,8 @@ validate_inputs <- function(enrichment_results, df_names=NA_character_,
   if (distance_metric != "kappa" && distance_metric != "jaccard") {
     stop("Unsupported distance metric. Only 'kappa' and 'jaccard' are supported.")
   }
-  if (linkage_method != "single" && linkage_method != "complete" && linkage_method != "average") {
-    stop("Unsupported linkage_method. Only 'single', 'complete', and 'average' is supported.")
+  if (!linkage_method %in% c("single", "complete", "average", "ward")) {
+    stop("Unsupported linkage_method. Only 'single', 'complete', 'average', and 'ward' are supported.")
   }
 
 }
