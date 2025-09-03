@@ -61,7 +61,7 @@ After an initial grouping of terms based on having a distance score above a cert
 
 The default recommended should be `average`, which takes the average distance between all terms in the two clusters and uses that as the metric to merge.
 
-The total list of supported metrics includes: 
+The full list of supported linkage methods includes:
 - `"single"`
 - `"complete"`
 - `"average"`
