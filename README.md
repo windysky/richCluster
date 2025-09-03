@@ -1,5 +1,5 @@
 ## richCluster
-richCluster is a fast C++ agglomerative hierarchical clustering algorithm packaged into easily callable R functions, designed to help cluster biological 'terms' based on how similar of genes are expressed in their activation. 
+richCluster is a fast C++ agglomerative hierarchical clustering algorithm packaged into easily callable R functions, designed to help cluster biological 'terms' based on how similarly the genes are expressed in their activation.
 
 Terms are clustered together based on how many genes are shared between them. We support two different types of similarity scores:
 - Kappa score
