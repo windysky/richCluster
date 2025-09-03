@@ -4,7 +4,7 @@
 \alias{cluster_network}
 \title{Create a Network Graph for a Specific Cluster}
 \usage{
-cluster_network(final_clusters, distance_matrix, cluster_number)
+cluster_network(final_clusters, distance_matrix, cluster_number, merged_df)
 }
 \arguments{
 \item{final_clusters}{A dataframe containing the final cluster data.}
@@ -12,6 +12,8 @@ cluster_network(final_clusters, distance_matrix, cluster_number)
 \item{distance_matrix}{A matrix representing the distances between terms.}
 
 \item{cluster_number}{An integer specifying the cluster number to visualize.}
+
+\item{merged_df}{A dataframe with all terms used to map term indices to names.}
 }
 \value{
 An interactive networkD3 network graph.

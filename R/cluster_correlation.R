@@ -10,9 +10,10 @@ NULL
 #' @param final_clusters A dataframe containing the final cluster data.
 #' @param distance_matrix A matrix representing the distances between terms.
 #' @param cluster_number An integer specifying the cluster number to visualize.
+#' @param merged_df A dataframe with all terms used to map term indices to names.
 #' @return An interactive heatmaply heatmap.
 #' @export
-cluster_correlation_hmap <- function(final_clusters, distance_matrix, cluster_number) {
+cluster_correlation_hmap <- function(final_clusters, distance_matrix, cluster_number, merged_df) {
   #TODO: Be able to see what genes are involved
   #TODO: Update tooltip
 
@@ -36,7 +37,7 @@ cluster_correlation_hmap <- function(final_clusters, distance_matrix, cluster_nu
   }
 
   # Get names of all terms from term_indices
-  term_names <- merged_richsets$Term[term_indices + 1]  # Adjust for 1-based indexing
+  term_names <- merged_df$Term[term_indices + 1]  # Adjust for 1-based indexing
 
   rownames(cluster_matrix) <- term_names
   colnames(cluster_matrix) <- term_names
@@ -70,9 +71,10 @@ cluster_correlation_hmap <- function(final_clusters, distance_matrix, cluster_nu
 #' @param final_clusters A dataframe containing the final cluster data.
 #' @param distance_matrix A matrix representing the distances between terms.
 #' @param cluster_number An integer specifying the cluster number to visualize.
+#' @param merged_df A dataframe with all terms used to map term indices to names.
 #' @return An interactive networkD3 network graph.
 #' @export
-cluster_network <- function(final_clusters, distance_matrix, cluster_number) {
+cluster_network <- function(final_clusters, distance_matrix, cluster_number, merged_df) {
   # view a network graph of all terms in a single cluster
   # opacity + length of edge corresponds to kappa score
   #TODO: double check does higher=shorter+darker?
@@ -97,7 +99,7 @@ cluster_network <- function(final_clusters, distance_matrix, cluster_number) {
   }
 
   # Get names of all terms from term_indices
-  term_names <- merged_richsets$Term[term_indices + 1]  # Adjust for 1-based indexing
+  term_names <- merged_df$Term[term_indices + 1]  # Adjust for 1-based indexing
   rownames(cluster_matrix) <- term_names
   colnames(cluster_matrix) <- term_names
 
