@@ -10,6 +10,22 @@ Rcpp::Rostream<true>&  Rcpp::Rcout = Rcpp::Rcpp_cout_get();
 Rcpp::Rostream<false>& Rcpp::Rcerr = Rcpp::Rcpp_cerr_get();
 #endif
 
+// runDavidClustering
+Rcpp::List runDavidClustering(Rcpp::CharacterVector terms, Rcpp::CharacterVector geneIDs, double similarityThreshold, int initialGroupMembership, int finalGroupMembership, double multipleLinkageThreshold);
+RcppExport SEXP _richCluster_runDavidClustering(SEXP termsSEXP, SEXP geneIDsSEXP, SEXP similarityThresholdSEXP, SEXP initialGroupMembershipSEXP, SEXP finalGroupMembershipSEXP, SEXP multipleLinkageThresholdSEXP) {
+BEGIN_RCPP
+    Rcpp::RObject rcpp_result_gen;
+    Rcpp::RNGScope rcpp_rngScope_gen;
+    Rcpp::traits::input_parameter< Rcpp::CharacterVector >::type terms(termsSEXP);
+    Rcpp::traits::input_parameter< Rcpp::CharacterVector >::type geneIDs(geneIDsSEXP);
+    Rcpp::traits::input_parameter< double >::type similarityThreshold(similarityThresholdSEXP);
+    Rcpp::traits::input_parameter< int >::type initialGroupMembership(initialGroupMembershipSEXP);
+    Rcpp::traits::input_parameter< int >::type finalGroupMembership(finalGroupMembershipSEXP);
+    Rcpp::traits::input_parameter< double >::type multipleLinkageThreshold(multipleLinkageThresholdSEXP);
+    rcpp_result_gen = Rcpp::wrap(runDavidClustering(terms, geneIDs, similarityThreshold, initialGroupMembership, finalGroupMembership, multipleLinkageThreshold));
+    return rcpp_result_gen;
+END_RCPP
+}
 // runRichCluster
 Rcpp::List runRichCluster(Rcpp::CharacterVector terms, Rcpp::CharacterVector geneIDs, std::string distanceMetric, double distanceCutoff, std::string linkageMethod, double linkageCutoff);
 RcppExport SEXP _richCluster_runRichCluster(SEXP termsSEXP, SEXP geneIDsSEXP, SEXP distanceMetricSEXP, SEXP distanceCutoffSEXP, SEXP linkageMethodSEXP, SEXP linkageCutoffSEXP) {
@@ -28,6 +44,7 @@ END_RCPP
 }
 
 static const R_CallMethodDef CallEntries[] = {
+    {"_richCluster_runDavidClustering", (DL_FUNC) &_richCluster_runDavidClustering, 6},
     {"_richCluster_runRichCluster", (DL_FUNC) &_richCluster_runRichCluster, 6},
     {NULL, NULL, 0}
 };

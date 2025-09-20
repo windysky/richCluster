@@ -6,7 +6,7 @@ Encoding: UTF-8
 Date: 2025-09-20
 Authors@R: c(
   person("Junguk", "Hur", role = c("aut", "cre"), email = "junguk.hur@med.und.edu"),
-  person("Sarah", "Hong", role = c("aut", "cre"), email = "ssh2198@columbia.edu"),
+  person("Sarah", "Hong", role = "aut", email = "ssh2198@columbia.edu"),
   person("Jane", "Kim", role = "aut", email = "j6kim2026@chadwickschool.org")
   )
 Description: The richCluster package contains a fast C++ agglomerative hierarchical clustering algorithm packaged 
@@ -44,6 +44,8 @@ Collate:
     'bars.R'
     'cluster.R'
     'cluster_correlation.R'
+    'compare_network_graphs_plotly.R'
+    'david_cluster.R'
     'dots.R'
     'export_df.R'
     'full_network.R'
@@ -51,5 +53,6 @@ Collate:
     'load_all.R'
     'merge_enrichment_results.R'
     'package.R'
+    'plot_network_graph.R'
     'run_shiny_app.R'
     'zzz.R'
