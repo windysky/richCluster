@@ -1,7 +1,18 @@
-#' richCluster: An R Package for Clustering Analysis
+#' richCluster: clustering and visualization utilities
 #'
-#' This package provides tools to perform clustering... (add a short description).
+#' Tools for clustering enriched terms, building correlation networks,
+#' and producing interactive heatmaps and network views.
 #'
-#' @docType package
+#' @seealso
+#'   \itemize{
+#'     \item Vignettes: `vignette("workflow", package = "richCluster")`
+#'     \item Repo and issues: <https://github.com/hurlab/richCluster>
+#'   }
+#'
+#' @keywords internal
 #' @name richCluster-package
 NULL
+
+# The roxygen2-recommended token that generates the package help topic
+# and links DESCRIPTION fields. Keep this line as a separate string.
+"_PACKAGE"
