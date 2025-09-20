@@ -17,7 +17,10 @@ DavidClustering::DavidClustering(
     multipleLinkageThreshold(multipleLinkageThreshold) {
 
     n_terms = terms.size();
-    totalGeneCount = StringUtils::countUniqueElements(geneIDs);
+    // Convert the incoming CharacterVector of comma-separated gene IDs to a
+    // standard vector so StringUtils utilities can operate on it.
+    std::vector<std::string> geneIDsVector = Rcpp::as<std::vector<std::string>>(geneIDs);
+    totalGeneCount = StringUtils::countUniqueElements(geneIDsVector);
     kappaMatrix.resize(n_terms, std::vector<double>(n_terms, 0.0));
 }
 
