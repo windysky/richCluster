@@ -1,6 +1,4 @@
-#' @importFrom magrittr %>%
-#' @import dplyr
-#' @import tidyr
+# NULL placeholder for roxygen namespace declarations
 NULL
 
 #' Create a Correlation Heatmap for a Specific Cluster
@@ -126,7 +124,7 @@ cluster_network <- function(final_clusters, distance_matrix, cluster_number, mer
     Group = "group",
     opacity = 0.9,
     linkWidth = 1.5,
-    linkDistance = JS("function(d) { return d.value * 50; }"),  # Adjust link distance based on value
+    linkDistance = networkD3::JS("function(d) { return d.value * 50; }"),  # Adjust link distance based on value
     charge = -200,
     fontFamily = "arial",
     zoom = TRUE,

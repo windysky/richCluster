@@ -1,6 +1,6 @@
 #' @importFrom magrittr %>%
-#' @import dplyr
-#' @import tidyr
+#' @importFrom dplyr across filter group_by mutate n row_number select summarise ungroup
+#' @importFrom tidyr separate_rows
 NULL
 
 #' Cluster Terms from Enrichment Results

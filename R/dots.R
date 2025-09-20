@@ -1,6 +1,5 @@
 #' @importFrom magrittr %>%
-#' @import dplyr
-#' @import tidyr
+#' @importFrom dplyr across filter first group_by mutate n pull slice starts_with summarise ungroup
 NULL
 
 #' Cluster-level Dot Plot of Enrichment Significance
