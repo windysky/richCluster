@@ -9,9 +9,7 @@
 #'
 #' @return A plotly object.
 #'
-#' @import igraph
-#' @import plotly
-#' @import viridis
+#' @importFrom igraph as_edgelist graph_from_adjacency_matrix layout_with_fr V
 #' @export
 compare_network_graphs_plotly <- function(cluster_result, cluster_num, pval_names) {
 
@@ -28,8 +26,8 @@ compare_network_graphs_plotly <- function(cluster_result, cluster_num, pval_name
   term_names <- cluster_result$cluster_df$Term[cluster_result$cluster_df$Cluster == cluster_num]
   subset_matrix <- cluster_result$distance_matrix[term_names, term_names]
   subset_matrix[subset_matrix < 0] <- 0
-  g <- graph_from_adjacency_matrix(subset_matrix, mode = "undirected", weighted = TRUE)
-  layout <- layout_with_fr(g)
+  g <- igraph::graph_from_adjacency_matrix(subset_matrix, mode = "undirected", weighted = TRUE)
+  layout <- igraph::layout_with_fr(g)
 
   plots <- list()
   for (i in seq_along(pval_names)) {
@@ -52,8 +50,8 @@ compare_network_graphs_plotly <- function(cluster_result, cluster_num, pval_name
       "P-value: ", signif(pval, 3)
     )
 
-    edges <- as_edgelist(g)
-    node_names <- V(g)$name
+    edges <- igraph::as_edgelist(g)
+    node_names <- igraph::V(g)$name
     edge_indices <- matrix(apply(edges, 2, function(col) match(col, node_names)), ncol = 2)
 
     edge_df <- data.frame(
@@ -63,15 +61,15 @@ compare_network_graphs_plotly <- function(cluster_result, cluster_num, pval_name
       yend = layout[edge_indices[,2], 2]
     )
 
-    p <- plot_ly() %>%
-      add_segments(
+    p <- plotly::plot_ly() %>%
+      plotly::add_segments(
         data = edge_df,
         x = ~x, xend = ~xend,
         y = ~y, yend = ~yend,
         line = list(color = 'lightgrey'),
         showlegend = FALSE
       ) %>%
-      add_trace(
+      plotly::add_trace(
         data = layout_df,
         x = ~x, y = ~y,
         type = "scatter", mode = "markers+text",
@@ -91,7 +89,7 @@ compare_network_graphs_plotly <- function(cluster_result, cluster_num, pval_name
         ),
         showlegend = FALSE
       ) %>%
-      layout(
+      plotly::layout(
         title = list(text = paste0("Cluster ", cluster_num, " (", pval_name, ")"), y = 0.95),
         xaxis = list(title = "", showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE),
         yaxis = list(title = "", showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE)
@@ -99,5 +97,5 @@ compare_network_graphs_plotly <- function(cluster_result, cluster_num, pval_name
     plots[[length(plots) + 1]] <- p
   }
 
-  subplot(plots, nrows = 1, margin = 0.05)
+  plotly::subplot(plots, nrows = 1, margin = 0.05)
 }

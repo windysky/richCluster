@@ -1,7 +1,6 @@
 # heatmap creation
 #' @importFrom magrittr %>%
-#' @import dplyr
-#' @import tidyr
+#' @importFrom dplyr across bind_rows distinct filter group_by mutate pull select starts_with summarise ungroup where
 NULL
 
 # utils

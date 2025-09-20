@@ -9,9 +9,7 @@
 #'
 #' @return A plot object.
 #'
-#' @import igraph
-#' @import fields
-#' @import viridis
+#' @importFrom igraph graph_from_adjacency_matrix
 #' @export
 plot_network_graph <- function(cluster_result, cluster_num, distance_matrix, valuetype_list) {
 
@@ -38,7 +36,7 @@ plot_network_graph <- function(cluster_result, cluster_num, distance_matrix, val
     if (any(!is.na(pval))) {
       norm_pval <- (pval - 0) / (global_max - 0)
 
-      palette_colors <- viridis(100)
+      palette_colors <- viridis::viridis(100)
       palette_indices <- round(norm_pval * 99) + 1
       palette_indices <- pmin(100, pmax(1, palette_indices))
 
@@ -77,7 +75,7 @@ plot_network_graph <- function(cluster_result, cluster_num, distance_matrix, val
   subset_matrix[is.infinite(subset_matrix)] <- NA
   subset_matrix[is.na(subset_matrix)] <- 0
 
-  g <- graph_from_adjacency_matrix(subset_matrix, mode = "undirected", weighted = TRUE)
+  g <- igraph::graph_from_adjacency_matrix(subset_matrix, mode = "undirected", weighted = TRUE)
 
   pvalues <- cluster_result$merged_df$Pvalue
   term_indices_pvalues <- match(term_names, cluster_result$merged_df$Term)
@@ -87,15 +85,15 @@ plot_network_graph <- function(cluster_result, cluster_num, distance_matrix, val
 
   short_term_names <- ifelse(nchar(term_names) > 10, paste0(substr(term_names, 1, 10), "..."), term_names)
 
-  plot(g, vertex.shape = "pie", vertex.pie = vertex_pie,
+  graphics::plot(g, vertex.shape = "pie", vertex.pie = vertex_pie,
        vertex.pie.color = node_colors, vertex.label.dist = -3,
        vertex.label.degree = -90, vertex.label = short_term_names,
        vertex.label.cex = 0.7, vertex.size = 30, main = representative_term)
 
-  par(mar = c(5, 4, 4, 6))
-  image.plot(
+  graphics::par(mar = c(5, 4, 4, 6))
+  fields::image.plot(
     legend.only = TRUE,
-    col = viridis(100),
+    col = viridis::viridis(100),
     zlim = c(0, max(all_pvals, na.rm = TRUE)),
     legend.lab = "-10log10(pvalue)",
     smallplot = c(0.8, 0.85, 0.2, 0.8),

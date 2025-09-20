@@ -1,6 +1,5 @@
-cluster_result <- readRDS("inst/extdata/cluster_result.rds")
-
 test_that("cluster handles ward linkage", {
+  cluster_result <- load_cluster_result()
   result <- cluster(
     cluster_result$df_list,
     df_names = cluster_result$df_names,
@@ -16,6 +15,7 @@ test_that("cluster handles ward linkage", {
 })
 
 test_that("cluster_correlation_hmap returns heatmaply object", {
+  cluster_result <- load_cluster_result()
   h <- cluster_correlation_hmap(
     cluster_result$final_clusters,
     cluster_result$distance_matrix,
@@ -26,6 +26,7 @@ test_that("cluster_correlation_hmap returns heatmaply object", {
 })
 
 test_that("cluster_network returns htmlwidget", {
+  cluster_result <- load_cluster_result()
   n <- cluster_network(
     cluster_result$final_clusters,
     cluster_result$distance_matrix,
