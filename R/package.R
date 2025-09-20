@@ -45,7 +45,7 @@
 #' \itemize{
 #'   \item \code{\link{export_df}}: Converts clustering results to a tidy data frame
 #' }
-#' @docType package
+#' @docType "_PACKAGE"
 #' @name richCluster
 #' @useDynLib richCluster
 #' @include load_all.R

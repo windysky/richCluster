@@ -54,5 +54,6 @@ Collate:
     'merge_enrichment_results.R'
     'package.R'
     'plot_network_graph.R'
+    'richCluster-package.R'
     'run_shiny_app.R'
     'zzz.R'
