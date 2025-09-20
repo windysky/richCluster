@@ -3,10 +3,9 @@
 \docType{package}
 \name{richCluster-package}
 \alias{richCluster-package}
-\title{richCluster: clustering and visualization utilities}
+\title{richCluster: An R Package for Clustering Analysis}
 \description{
-Tools for clustering enriched terms, building correlation networks,
-and producing interactive heatmaps and network views.
+This package provides tools to perform clustering... (add a short description).
 }
 \author{
 \strong{Maintainer}: Junguk Hur \email{junguk.hur@med.und.edu}
@@ -18,4 +17,3 @@ Authors:
 }
 
 }
-\keyword{internal}

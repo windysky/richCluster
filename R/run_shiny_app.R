@@ -1,24 +1,34 @@
-#' Launch RichStudio shiny app
+#' Launch the richCluster Shiny app
 #'
-#' @import Rcpp
+#' Starts the app shipped in inst/application.
+#'
+#' @return No return value.
+#' @examplesIf interactive() && requireNamespace("shiny", quietly = TRUE)
+#' # run_shiny_app()
 #' @export
-launch_shiny <- function() {
-  appDir <- system.file("application", package = "richCluster")
-  if (appDir == "") {
-    stop("Could not find application. Try re-installing `richCluster`.", call. = FALSE)
+run_shiny_app <- function(...) {
+  if (!interactive()) {
+    stop("Shiny app can only be launched in an interactive session.")
+  }
+  if (!requireNamespace("shiny", quietly = TRUE)) {
+    stop("The 'shiny' package is not installed. Install it to launch the app.")
   }
 
-  # Source all R scripts from subdirectories
-  sourceDir <- function(path, trace = TRUE, ...) {
-    for (nm in list.files(path, pattern = "\\.[Rr]$", full.names = TRUE)) {
-      if(trace) cat(nm,":")
-      source(nm, ...)
-      if(trace) cat("\n")
-    }
+  app_dir <- system.file("application", package = "richCluster")
+  if (identical(app_dir, "")) {
+    stop("App directory not found under inst/application in this package.")
   }
 
-  # Source scripts in subdirectories
-  sourceDir(system.file("R/modules", package = "richCluster"))
+  # Optionally source modules from inst/application/modules
+  mod_dir <- file.path(app_dir, "modules")
+  if (dir.exists(mod_dir)) {
+    rfiles <- list.files(mod_dir, pattern = "[.][Rr]$", full.names = TRUE)
+    for (f in rfiles) sys.source(f, envir = parent.frame())
+  }
 
-  shiny::runApp(appDir, display.mode = "normal")
+  shiny::shinyAppDir(appDir = app_dir, ...)
 }
+
+# Backward compatible alias
+#' @export
+launch_shiny <- function(...) run_shiny_app(...)

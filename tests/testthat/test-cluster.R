@@ -22,7 +22,7 @@ test_that("cluster_correlation_hmap returns heatmaply object", {
     1,
     cluster_result$merged_df
   )
-  expect_true("heatmaply" %in% class(h))
+  expect_true("plotly" %in% class(h))
 })
 
 test_that("cluster_network returns htmlwidget", {

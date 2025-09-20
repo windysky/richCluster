@@ -1,12 +1,7 @@
-#' richCluster: clustering and visualization utilities
+#' richCluster: An R Package for Clustering Analysis
 #'
-#' Tools for clustering enriched terms, building correlation networks,
-#' and producing interactive heatmaps and network views.
+#' This package provides tools to perform clustering... (add a short description).
 #'
-#' @keywords internal
+#' @docType package
 #' @name richCluster-package
-"_PACKAGE"
-
-## usethis namespace: start
-## usethis namespace: end
 NULL

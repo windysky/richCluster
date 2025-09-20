@@ -1,5 +1,5 @@
 #' @importFrom magrittr %>%
-#' @importFrom dplyr filter group_by mutate pull select slice summarise ungroup
+#' @importFrom dplyr filter group_by mutate pull select slice summarise ungroup everything
 NULL
 
 # functions to export the cluster_result as csv
