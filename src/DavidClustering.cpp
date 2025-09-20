@@ -3,20 +3,21 @@
 #include <Rcpp.h>
 
 DavidClustering::DavidClustering(
-    const Rcpp::CharacterVector& terms,
-    const Rcpp::CharacterVector& geneIDs,
+    const Rcpp::CharacterVector& termsVec,
+    const Rcpp::CharacterVector& geneIDsVec,
     double similarityThreshold,
     int initialGroupMembership,
     int finalGroupMembership,
     double multipleLinkageThreshold
-) : terms(terms),
-    geneIDs(geneIDs),
+) : terms(Rcpp::as<std::vector<std::string>>(termsVec)),
+    geneIDs(Rcpp::as<std::vector<std::string>>(geneIDsVec)),
+    n_terms(static_cast<int>(terms.size())),
+    totalGeneCount(0),
     similarityThreshold(similarityThreshold),
     initialGroupMembership(initialGroupMembership),
     finalGroupMembership(finalGroupMembership),
     multipleLinkageThreshold(multipleLinkageThreshold) {
 
-    n_terms = terms.size();
     totalGeneCount = StringUtils::countUniqueElements(geneIDs);
     kappaMatrix.resize(n_terms, std::vector<double>(n_terms, 0.0));
 }
@@ -43,7 +44,7 @@ Rcpp::List DavidClustering::run() {
             std::string termIndicesStr;
 
             for (int term_index : cluster) {
-                clusterTermNames.push_back(Rcpp::as<std::string>(terms[term_index]));
+                clusterTermNames.push_back(terms[term_index]);
                 if (!termIndicesStr.empty()) {
                     termIndicesStr += ", ";
                 }
@@ -70,8 +71,8 @@ Rcpp::List DavidClustering::run() {
 void DavidClustering::calculateKappaScores() {
     for (int i = 0; i < n_terms; ++i) {
         for (int j = i + 1; j < n_terms; ++j) {
-            std::unordered_set<std::string> term1_genes = StringUtils::splitStringToUnorderedSet(Rcpp::as<std::string>(geneIDs[i]), ",");
-            std::unordered_set<std::string> term2_genes = StringUtils::splitStringToUnorderedSet(Rcpp::as<std::string>(geneIDs[j]), ",");
+            std::unordered_set<std::string> term1_genes = StringUtils::splitStringToUnorderedSet(geneIDs[i], ",");
+            std::unordered_set<std::string> term2_genes = StringUtils::splitStringToUnorderedSet(geneIDs[j], ",");
 
             int term1term2 = 0;
             for (const auto& gene : term1_genes) {

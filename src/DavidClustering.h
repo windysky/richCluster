@@ -28,8 +28,8 @@ private:
     double calculateDiceCoefficient(const TermSet& seed1, const TermSet& seed2);
 
     // Input data
-    Rcpp::CharacterVector terms;
-    Rcpp::CharacterVector geneIDs;
+    std::vector<std::string> terms;
+    std::vector<std::string> geneIDs;
     int n_terms;
     int totalGeneCount;
 
