@@ -30,7 +30,9 @@ match the length of `enrichment_results`. Default is `NULL`.}
 
 \item{distance_cutoff}{A numeric value for the distance cutoff (0 < cutoff <= 1).}
 
-\item{linkage_method}{A string specifying the linkage method to use. Supported options are "single", "complete", "average", and "ward".}
+\item{linkage_method}{A string specifying the linkage method to use
+(e.g., "average"). Supported options are "single", "complete",
+"average", and "ward".}
 
 \item{linkage_cutoff}{A numeric value between 0 and 1 for the membership cutoff.}
 }

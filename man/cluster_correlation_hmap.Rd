@@ -4,7 +4,12 @@
 \alias{cluster_correlation_hmap}
 \title{Create a Correlation Heatmap for a Specific Cluster}
 \usage{
-cluster_correlation_hmap(final_clusters, distance_matrix, cluster_number, merged_df)
+cluster_correlation_hmap(
+  final_clusters,
+  distance_matrix,
+  cluster_number,
+  merged_df
+)
 }
 \arguments{
 \item{final_clusters}{A dataframe containing the final cluster data.}
