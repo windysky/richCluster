@@ -10,9 +10,7 @@
 #'   }
 #'
 #' @keywords internal
-#' @name richCluster-package
-NULL
+"_PACKAGE"
 
 # The roxygen2-recommended token that generates the package help topic
 # and links DESCRIPTION fields. Keep this line as a separate string.
-"_PACKAGE"
