@@ -2,17 +2,12 @@
 % Please edit documentation in R/richCluster-package.R
 \docType{package}
 \name{richCluster-package}
+\alias{richCluster}
 \alias{richCluster-package}
 \title{richCluster: clustering and visualization utilities}
 \description{
 Tools for clustering enriched terms, building correlation networks,
 and producing interactive heatmaps and network views.
-}
-\seealso{
-\itemize{
-    \item Vignettes: `vignette("workflow", package = "richCluster")`
-    \item Repo and issues: <https://github.com/hurlab/richCluster>
-  }
 }
 \author{
 \strong{Maintainer}: Junguk Hur \email{junguk.hur@med.und.edu}

@@ -1,55 +1,42 @@
-Package: richCluster
 Type: Package
+Package: richCluster
 Title: Fast, Robust Clustering Algorithms for Gene Enrichment Data
 Version: 1.0.0
-Encoding: UTF-8
 Date: 2025-09-20
 Authors@R: c(
-  person("Junguk", "Hur", role = c("aut", "cre"), email = "junguk.hur@med.und.edu"),
-  person("Sarah", "Hong", role = "aut", email = "ssh2198@columbia.edu"),
-  person("Jane", "Kim", role = "aut", email = "j6kim2026@chadwickschool.org")
+    person("Junguk", "Hur", , "junguk.hur@med.und.edu", role = c("aut", "cre")),
+    person("Sarah", "Hong", , "ssh2198@columbia.edu", role = "aut"),
+    person("Jane", "Kim", , "j6kim2026@chadwickschool.org", role = "aut")
   )
-Description: The richCluster package contains a fast C++ agglomerative hierarchical clustering algorithm packaged 
-    into easily callable R functions, designed to help cluster biological 'terms' based on how similar 
-    of genes are expressed in their activation.
+Description: The richCluster package contains a fast C++ agglomerative
+    hierarchical clustering algorithm packaged into easily callable R
+    functions, designed to help cluster biological 'terms' based on how
+    similar of genes are expressed in their activation.
 License: MIT + file LICENSE
-Depends: R (>= 3.5.0)
+Depends: 
+    R (>= 3.5.0)
 Imports:
-    Rcpp (>= 1.0.14),
-    plotly,
-    stats,
-    viridis,
     dplyr,
-    tidyr,
-    magrittr,
+    fields,
     heatmaply,
-    iheatmapr,
     igraph,
+    iheatmapr,
+    magrittr,
     networkD3,
-    fields
-VignetteBuilder: knitr
+    plotly,
+    Rcpp (>= 1.0.14),
+    stats,
+    tidyr,
+    viridis
 Suggests: 
     devtools,
-    roxygen2,
-    testthat,
     knitr,
-    rmarkdown
-LinkingTo: Rcpp
+    rmarkdown,
+    roxygen2,
+    testthat
+LinkingTo: 
+    Rcpp
+VignetteBuilder: 
+    knitr
+Encoding: UTF-8
 RoxygenNote: 7.3.3
-Collate: 
-    'RcppExports.R'
-    'bars.R'
-    'cluster.R'
-    'cluster_correlation.R'
-    'compare_network_graphs_plotly.R'
-    'david_cluster.R'
-    'dots.R'
-    'export_df.R'
-    'full_network.R'
-    'hmaps.R'
-    'load_all.R'
-    'merge_enrichment_results.R'
-    'package.R'
-    'plot_network_graph.R'
-    'richCluster-package.R'
-    'zzz.R'
